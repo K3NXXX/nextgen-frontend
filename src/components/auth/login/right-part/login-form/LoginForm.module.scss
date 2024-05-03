@@ -1,0 +1,165 @@
+.form {
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 45px;
+    width: 435px;
+    background: linear-gradient(
+        92.67deg,
+        rgba(255, 255, 255, 0) -39.666%,
+        rgba(255, 255, 255, 0.04) 94.679%
+    );
+    .errors {
+        position: absolute;
+    }
+    .error {
+        color: red;
+        padding-left: 5px;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 140%;
+        letter-spacing: 0%;
+        text-align: center;
+    }
+    .register {
+        color: rgb(255, 255, 255);
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 130%;
+        letter-spacing: 0%;
+        text-align: center;
+        margin-bottom: 24px;
+    }
+    .register_ways {
+        display: flex;
+        justify-content: center;
+        gap: 0 15px;
+        margin-bottom: 43px;
+        .register_ways_items {
+            background-color: transparent;
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid white;
+            cursor: pointer;
+            transition: 0.3s ease;
+            &:hover {
+                background-color: rgb(255, 255, 255, 0.3);
+            }
+        }
+    }
+    .or {
+        color: rgb(160, 174, 192);
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 140%;
+        letter-spacing: 0%;
+        text-align: center;
+        margin-bottom: 17px;
+    }
+    .input_row {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 24px;
+        .password_wrapper {
+            position: relative;
+            min-width: 100%;
+            .eye {
+                cursor: pointer;
+                position: absolute;
+                top: 13px;
+                right: 15px;
+                user-select: none;
+            }
+        }
+        label {
+            color: rgb(255, 255, 255);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 140%;
+            letter-spacing: 0%;
+            text-align: left;
+            margin-bottom: 5px;
+            padding-left: 5px;
+        }
+        input {
+            padding: 15px 20px;
+            border: 1px solid white;
+            border-radius: 20px;
+            width: 100%;
+            background: linear-gradient(
+                92.69deg,
+                rgba(255, 255, 255, 0) -45.295%,
+                rgba(255, 255, 255, 0.04) 104.212%
+            );
+            color: white;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 140%;
+            letter-spacing: 0%;
+            text-align: left;
+            &::placeholder {
+                color: rgb(160, 174, 192);
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: 0%;
+                text-align: left;
+            }
+        }
+    }
+    .toggle {
+        color: rgb(255, 255, 255);
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 150%;
+        letter-spacing: 0%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 37px;
+    }
+    .submitButton {
+        text-transform: uppercase;
+        color: rgb(255, 255, 255);
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 150%;
+        letter-spacing: 0%;
+        text-align: center;
+        border-radius: 12px;
+        backdrop-filter: blur(120px);
+        background: rgb(0, 117, 255);
+        padding: 16px 150px;
+        transition: 0.3s ease;
+        margin-bottom: 22px;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+    .haveAccout {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 140%;
+        letter-spacing: 0%;
+        text-align: center;
+        color: rgb(160, 174, 192);
+        margin-bottom: 10px;
+        a {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 140%;
+            letter-spacing: 0%;
+            text-align: center;
+            color: rgb(255, 255, 255);
+        }
+    }
+    .forgotPassword {
+        text-align: center;
+        a {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 140%;
+            letter-spacing: 0%;
+            text-align: center;
+            color: rgb(255, 255, 255);
+        }
+    }
+}

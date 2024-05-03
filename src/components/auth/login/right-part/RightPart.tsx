@@ -1,5 +1,5 @@
 import styles from './RightPart.module.scss'
-import { RegisterForm } from './register-form/RegisterForm'
+import { LoginForm } from './login-form/LoginForm'
 
 export function RightPart() {
 
@@ -7,12 +7,12 @@ export function RightPart() {
         <div className={styles.root}>
 			<div className={styles.wrapper}>
 				<div className={styles.content}>
-					<p className={styles.welcome}>Welcome!</p>
+					<p className={styles.welcome}>Welcome back!</p>
 					<p className={styles.text}>
-						Use this awesome form to create new account for free.
+						Use this awesome form to log in to your account.
 					</p>
 				</div>
-				<RegisterForm/>
+				<LoginForm/>
 			</div>
         </div>
     )
