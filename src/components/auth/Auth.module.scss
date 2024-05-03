@@ -1,0 +1,19 @@
+.root {
+    background: linear-gradient(169.05deg, rgb(15, 18, 59) 14.742%,rgb(9, 13, 46) 56.061%,rgb(2, 5, 21) 85.138%);
+}
+.header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    padding: 42px 23px;
+    max-width: 988px;
+    margin: 0 auto;
+    backdrop-filter: blur(50px);
+    border: 1px solid white;
+    margin-top: 20px;
+	z-index: 50;
+    border-radius: 30px;
+
+  
+}

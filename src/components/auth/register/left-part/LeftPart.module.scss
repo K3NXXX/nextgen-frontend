@@ -1,0 +1,41 @@
+.root {
+    background-image: url('/auth-page/register/left-part-bg.jpg');
+    filter: brightness(150%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 140vh;
+    .content {
+        user-select: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 140vh;
+        .text {
+            color: #ffffff;
+            line-height: 100%;
+            border-radius: 12px;
+            color: rgb(255, 255, 255);
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 100%;
+            letter-spacing: 18%;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .text_bold {
+            background: rgb(255, 255, 255);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 100%;
+            letter-spacing: 18%;
+            text-align: center;
+        }
+    }
+}
