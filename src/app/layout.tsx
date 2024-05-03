@@ -1,7 +1,9 @@
 import { SITE_NAME } from '@/constants/seo.constants'
 import type { Metadata } from 'next'
 import  "./globals.scss"
+import "react-toastify/dist/ReactToastify.css";
 import { Plus_Jakarta_Sans } from 'next/font/google'
+import { ToastContainer } from 'react-toastify'
 
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'], weight: "400" })
 
@@ -20,7 +22,11 @@ export default function RootLayout({
 }>) {
     return (
         <html  lang="en">
-            <body className={plusJakartaSans.className}>{children}</body>
+            <body className={plusJakartaSans.className}>
+                {children}
+                <ToastContainer  position='bottom-right' />
+                
+                </body>
         </html>
     )
 }

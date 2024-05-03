@@ -1,25 +1,29 @@
 import { PAGES } from '@/constants/pages-url.constants'
 import { Box, CircleUserRound, KeyRound, User } from 'lucide-react'
 import { IAuthHeaderMenu } from './types'
-export const AuthHeaderMenu: IAuthHeaderMenu[] = [
+export const authHeaderMenu: IAuthHeaderMenu[] = [
     {
         id: 1,
         icon: Box,
-        link: PAGES.HOME,
+        name: "DASHBOARD",
+        url: PAGES.HOME,
     },
     {
         id: 2,
         icon: User,
-        link: PAGES.PROFILE,
+        name: "PROFILE",
+        url: PAGES.PROFILE,
     },
     {
         id: 3,
         icon: CircleUserRound,
-        link: PAGES.REGISTER,
+        name: "SIGN UP",
+        url: PAGES.REGISTER,
     },
     {
         id: 4,
         icon: KeyRound,
-        link: PAGES.LOGIN,
+        name: "SIGN IN",
+        url: PAGES.LOGIN,
     },
 ]

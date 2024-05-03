@@ -1,0 +1,13 @@
+.root {
+	display: flex;
+	align-items: center;
+	gap: 0 5px;
+	p {
+		color: rgb(255, 255, 255);
+		font-size: 12px;
+		font-weight: 700;
+		line-height: 150%;
+		letter-spacing: 0%;
+		text-transform: uppercase;
+	}
+}

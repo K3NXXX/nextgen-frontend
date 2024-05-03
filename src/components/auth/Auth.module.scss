@@ -14,6 +14,13 @@
     margin-top: 20px;
 	z-index: 50;
     border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .navigation {
+        display: flex;
+        gap: 0 30px;
+    }
 
   
 }
