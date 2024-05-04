@@ -1,18 +1,20 @@
 'use client'
 import { PAGES } from '@/constants/pages-url.constants'
 import type { IRegisterForm } from '@/types/auth.types'
+import { useSignIn } from '@clerk/nextjs'
 import { Switch } from '@mui/material'
 import { Eye, EyeOff } from 'lucide-react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { FaApple, FaFacebook, FaGoogle } from 'react-icons/fa'
 import { toast } from 'react-toastify'
 import styles from './LoginForm.module.scss'
-import { useRouter } from 'next/navigation'
 
 export function LoginForm() {
-    const {replace} = useRouter()
+    const { signIn, setActive } = useSignIn()
+    const { replace } = useRouter()
     const [showPassword, setShowPassword] = useState(false)
     const {
         register,
@@ -21,10 +23,19 @@ export function LoginForm() {
         formState: { errors },
     } = useForm<IRegisterForm>({ reValidateMode: 'onSubmit' })
 
-    const onSubmit: SubmitHandler<IRegisterForm> = () => {
-        toast.success("Login was successful!")
-        replace(PAGES.HOME)
-        reset()
+    const onSubmit: SubmitHandler<IRegisterForm> = async (data) => {
+        const result = await signIn?.create({
+            password: data.password,
+            identifier: data.email,
+        })
+        if (result?.status === 'complete') {
+            if (setActive) {
+                await setActive({ session: result.createdSessionId })
+                toast.success('Login was successful!')
+                replace(PAGES.HOME)
+                reset()
+            }
+        }
     }
 
     const handleClickShowPassword = () => {
@@ -57,8 +68,8 @@ export function LoginForm() {
                         },
                         maxLength: {
                             value: 100,
-                            message: "Email requires max 100 characters"
-                        }
+                            message: 'Email requires max 100 characters',
+                        },
                     })}
                     type="text"
                     placeholder="Your email address"
@@ -84,14 +95,13 @@ export function LoginForm() {
                         {...register('password', {
                             required: true,
                             minLength: {
-                                value: 5,
-                                message: 'Password requires min 5 characters',
+                                value: 10,
+                                message: 'Password requires min 10 characters',
                             },
                             pattern: {
-                                value: /\d/, 
+                                value: /\d/,
                                 message: 'Password requires at least one digit',
-                              },
-                            
+                            },
                         })}
                         type={showPassword ? 'text' : 'password'}
                         placeholder="Your email address"
@@ -106,19 +116,16 @@ export function LoginForm() {
                 Log in
             </button>
             <p className={styles.haveAccout}>
-                Don't have an account? <Link href={PAGES.REGISTER}>Sign up</Link>
+                Don't have an account?{' '}
+                <Link href={PAGES.REGISTER}>Sign up</Link>
             </p>
             <p className={styles.forgotPassword}>
-               <Link href={""}>Forgot your password?</Link>
+                <Link href={''}>Forgot your password?</Link>
             </p>
             <div className={styles.errors}>
                 {errors.password?.message &&
                     toast.error(errors.password.message, {
                         toastId: 'passwordId',
-                    })}
-                {errors.name?.message &&
-                    toast.error(errors.name.message, {
-                        toastId: 'nameId',
                     })}
                 {errors.email?.message &&
                     toast.error(errors.email.message, { toastId: 'emailId' })}
