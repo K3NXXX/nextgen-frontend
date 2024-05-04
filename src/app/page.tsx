@@ -1,3 +1,4 @@
 export default function Home() {
-    return <main className="fsfs">adadad</main>
+    return <main className="fsfs">
+    </main>
 }

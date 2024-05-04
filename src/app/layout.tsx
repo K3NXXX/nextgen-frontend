@@ -4,6 +4,7 @@ import  "./globals.scss"
 import "react-toastify/dist/ReactToastify.css";
 import { Plus_Jakarta_Sans } from 'next/font/google'
 import { ToastContainer } from 'react-toastify'
+import { ClerkProvider } from '@clerk/nextjs'
 
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'], weight: "400" })
 
@@ -21,12 +22,14 @@ export default function RootLayout({
     children: React.ReactNode
 }>) {
     return (
-        <html  lang="en">
-            <body className={plusJakartaSans.className}>
-                {children}
-                <ToastContainer  position='bottom-right' />
-                
-                </body>
-        </html>
+        <ClerkProvider>
+            <html  lang="en">
+                <body className={plusJakartaSans.className}>
+                    {children}
+                    <ToastContainer  position='bottom-right' />
+                    
+                    </body>
+            </html>
+        </ClerkProvider>
     )
 }

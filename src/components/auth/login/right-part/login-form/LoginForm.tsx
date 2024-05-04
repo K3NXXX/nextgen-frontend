@@ -22,7 +22,7 @@ export function LoginForm() {
     } = useForm<IRegisterForm>({ reValidateMode: 'onSubmit' })
 
     const onSubmit: SubmitHandler<IRegisterForm> = () => {
-        toast.success("Registration was successful!")
+        toast.success("Login was successful!")
         replace(PAGES.HOME)
         reset()
     }
