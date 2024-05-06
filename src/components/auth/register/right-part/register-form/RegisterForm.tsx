@@ -1,4 +1,5 @@
 'use client'
+import { GlobalLoader } from '@/components/ui/global-loader/GlobalLoader'
 import { PAGES } from '@/constants/pages-url.constants'
 import type { IRegisterForm } from '@/types/auth.types'
 import { useSignUp } from '@clerk/nextjs'
@@ -12,9 +13,8 @@ import { toast } from 'react-toastify'
 import { VerifyEmailForm } from '../verify-email-form/VerifyEmailForm'
 import styles from './RegisterForm.module.scss'
 
-
 export function RegisterForm() {
-    const { signUp } = useSignUp()
+    const { signUp, isLoaded } = useSignUp()
     const [pendingVerification, setPendingVerification] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
     const {
@@ -52,7 +52,7 @@ export function RegisterForm() {
         setShowPassword(!showPassword)
     }
 
-    
+    if (!isLoaded) return <GlobalLoader />
 
     return (
         <>
@@ -200,7 +200,11 @@ export function RegisterForm() {
                         })}
                 </div>
             </form>
-            {pendingVerification && <VerifyEmailForm setPendingVerification = {setPendingVerification}/>}
+            {pendingVerification && (
+                <VerifyEmailForm
+                    setPendingVerification={setPendingVerification}
+                />
+            )}
         </>
     )
 }
