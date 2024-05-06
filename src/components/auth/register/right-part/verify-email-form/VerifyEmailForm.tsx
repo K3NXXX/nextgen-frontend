@@ -9,8 +9,13 @@ import { useRef, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import styles from './VerifyEmailForm.module.scss'
+import { useOnClickOutside } from 'usehooks-ts'
 
-export function VerifyEmailForm() {
+interface IVerifyEmailFormProps {
+    setPendingVerification: React.Dispatch<React.SetStateAction<boolean>>;
+}
+export function VerifyEmailForm({setPendingVerification}: IVerifyEmailFormProps) {
+    const emailVefiryRef = useRef<HTMLFormElement>(null)
     const inputRefs = useRef<(HTMLInputElement | null)[]>([])
     const { handleSubmit, reset } = useForm<IVerifyEmailForm>()
     const { isLoaded, signUp, setActive } = useSignUp()
@@ -34,7 +39,17 @@ export function VerifyEmailForm() {
                 reset()
             }
         } catch (error) {
-            console.error(error)
+            console.log('on submit error:', error)
+        }
+    }
+
+    const resendCode = async () => {
+        try {
+            await signUp?.prepareEmailAddressVerification({
+                strategy: 'email_code',
+            })
+        } catch (error) {
+            console.log('resend code error:', error)
         }
     }
 
@@ -63,9 +78,15 @@ export function VerifyEmailForm() {
         }
     }
 
+    const handleClickOutside = () => {
+        setPendingVerification(false)
+    }
+
+      useOnClickOutside(emailVefiryRef, handleClickOutside)
+
     return (
-        <div className={styles.verifiedForm_wrapper}>
-            <form onSubmit={handleSubmit(onSubmit)}>
+        <div  className={styles.verifiedForm_wrapper}>
+            <form ref={emailVefiryRef} onSubmit={handleSubmit(onSubmit)}>
                 <Mail size={30} color="white" />
                 <label>Email verification</label>
                 <p>Enter your verification code we sent you on your email</p>
@@ -84,7 +105,19 @@ export function VerifyEmailForm() {
                             />
                         ))}
                     </div>
-                    <button>Verify Email</button>
+                    <button className={styles.submitButton}>
+                        Verify Email
+                    </button>
+                    <p className={styles.problems}>
+                        Are you facing any problems with receiving the code?
+                    </p>
+                    <button
+                        onClick={resendCode}
+                        className={styles.resendCodeButton}
+                    >
+                        Resend code
+                    </button>
+                    <button onClick={handleClickOutside} className={styles.goBackButton}>Go back</button>
                 </div>
             </form>
         </div>

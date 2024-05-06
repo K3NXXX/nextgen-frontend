@@ -12,6 +12,7 @@ import { toast } from 'react-toastify'
 import { VerifyEmailForm } from '../verify-email-form/VerifyEmailForm'
 import styles from './RegisterForm.module.scss'
 
+
 export function RegisterForm() {
     const { signUp } = useSignUp()
     const [pendingVerification, setPendingVerification] = useState(false)
@@ -50,6 +51,8 @@ export function RegisterForm() {
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword)
     }
+
+    
 
     return (
         <>
@@ -197,7 +200,7 @@ export function RegisterForm() {
                         })}
                 </div>
             </form>
-            {pendingVerification && <VerifyEmailForm />}
+            {pendingVerification && <VerifyEmailForm setPendingVerification = {setPendingVerification}/>}
         </>
     )
 }
