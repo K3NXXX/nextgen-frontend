@@ -5,23 +5,20 @@ import { useSignUp } from '@clerk/nextjs'
 import { Switch } from '@mui/material'
 import { Eye, EyeOff } from 'lucide-react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { FaApple, FaFacebook, FaGoogle } from 'react-icons/fa'
 import { toast } from 'react-toastify'
+import { VerifyEmailForm } from '../verify-email-form/VerifyEmailForm'
 import styles from './RegisterForm.module.scss'
 
 export function RegisterForm() {
-    const { isLoaded, signUp, setActive } = useSignUp()
-    const [code, setCode] = useState('')
+    const { signUp } = useSignUp()
     const [pendingVerification, setPendingVerification] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
-    const { replace } = useRouter()
     const {
         register,
         handleSubmit,
-        reset,
         formState: { errors },
     } = useForm<IRegisterForm>({ reValidateMode: 'onSubmit' })
 
@@ -37,31 +34,16 @@ export function RegisterForm() {
                 strategy: 'email_code',
             })
             setPendingVerification(true)
-        } catch (error) {
-            console.log('Register onSubmit error: ', error)
-        }
-    }
-
-    const onPressVerify = async (e: any) => {
-        e.preventDefault()
-        if (!isLoaded) {
-            return
-        }
-
-        try {
-            const completeSignUp = await signUp.attemptEmailAddressVerification(
-                {
-                    code,
-                }
-            )
-            if (completeSignUp.status === 'complete') {
-                await setActive({ session: completeSignUp.createdSessionId })
-                toast.success('Registration was successful!')
-                replace(PAGES.HOME)
-                reset()
+        } catch (error: any) {
+            if (error.errors[0]?.code === 'form_identifier_exists') {
+                toast.error(
+                    'This email address is already in use. Please use a different one.'
+                )
             }
-        } catch (error) {
-            console.error(error)
+            console.log(
+                'Register onSubmit error: ',
+                JSON.stringify(error, null, 2)
+            )
         }
     }
 
@@ -215,24 +197,7 @@ export function RegisterForm() {
                         })}
                 </div>
             </form>
-            {pendingVerification && (
-                <div className={styles.verifiedForm_wrapper}>
-                    <div>
-                        <form>
-                            <label>Email verification</label>
-                            <p>We sent you a code on your email</p>
-                            <input
-                                value={code}
-                                placeholder="Your verification code..."
-                                onChange={(e) => setCode(e.target.value)}
-                            />
-                            <button onClick={onPressVerify}>
-                                Verify Email
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            )}
+            {pendingVerification && <VerifyEmailForm />}
         </>
     )
 }

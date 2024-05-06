@@ -1,0 +1,107 @@
+.verifiedForm_wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(30, 30, 33, 255);
+        border-radius: 20px;
+        border: 3px solid #242426;
+        padding: 20px;
+        label {
+            color: rgb(255, 255, 255);
+            font-size: 25px;
+            font-weight: 400;
+            line-height: 140%;
+            letter-spacing: 0%;
+            text-align: left;
+            margin-bottom: 15px;
+            padding-left: 5px;
+            text-transform: uppercase;
+        }
+        p {
+            color: rgb(255, 255, 255);
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 140%;
+            letter-spacing: 0%;
+            text-align: left;
+            margin-bottom: 15px;
+            padding-left: 5px;
+            align-self: center;
+        }
+        .content {
+            width: 400px;
+            .inputs_row {
+                display: grid;
+				justify-content: center;
+                grid-template-columns: repeat(6, 1fr);
+                gap: 0 10px;
+            }
+            input[type='number']::-webkit-outer-spin-button,
+            input[type='number']::-webkit-inner-spin-button {
+                -webkit-appearance: none; /* Видаляємо стрілки для Safari */
+                margin: 0; /* Відступ */
+            }
+
+            input[type='number'] {
+                -moz-appearance: textfield; /* Видаляємо стрілки для Firefox */
+            }
+            input {
+                padding: 20px 0px 20px 23px;
+                border: 1px solid white;
+				height: 60px;
+				width: 100%;
+				border-radius: 10px;
+				text-align: left;
+				
+                background: linear-gradient(
+                    92.69deg,
+                    rgba(255, 255, 255, 0) -45.295%,
+                    rgba(255, 255, 255, 0.04) 104.212%
+                );
+                color: white;
+                font-size: 20px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: 0%;
+                text-align: left;
+                margin-bottom: 22px;
+
+                &::placeholder {
+                    color: rgb(160, 174, 192);
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 140%;
+                    letter-spacing: 0%;
+                }
+            }
+            button {
+                text-transform: uppercase;
+                color: rgb(255, 255, 255);
+                font-size: 12px;
+                font-weight: 700;
+                line-height: 150%;
+                letter-spacing: 0%;
+                text-align: center;
+                border-radius: 12px;
+                backdrop-filter: blur(120px);
+                background: rgb(0, 117, 255);
+                padding: 16px 140px;
+                transition: 0.3s ease;
+                width: 100%;
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}
