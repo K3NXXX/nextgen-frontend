@@ -5,21 +5,25 @@ import { IVerifyEmailForm } from '@/types/auth.types'
 import { useSignUp } from '@clerk/nextjs'
 import { Mail } from 'lucide-react'
 import { useRouter } from 'next/navigation'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
-import styles from './VerifyEmailForm.module.scss'
 import { useOnClickOutside } from 'usehooks-ts'
+import styles from './VerifyEmailForm.module.scss'
 
 interface IVerifyEmailFormProps {
-    setPendingVerification: React.Dispatch<React.SetStateAction<boolean>>;
+    setPendingVerification: React.Dispatch<React.SetStateAction<boolean>>
 }
-export function VerifyEmailForm({setPendingVerification}: IVerifyEmailFormProps) {
+export function VerifyEmailForm({
+    setPendingVerification,
+}: IVerifyEmailFormProps) {
     const emailVefiryRef = useRef<HTMLFormElement>(null)
     const inputRefs = useRef<(HTMLInputElement | null)[]>([])
     const { handleSubmit, reset } = useForm<IVerifyEmailForm>()
     const { isLoaded, signUp, setActive } = useSignUp()
     const [code, setCode] = useState('')
+    const [showTimer, setShowTimer] = useState(false)
+    const [timer, setTimer] = useState(59)
     const { replace } = useRouter()
 
     const onSubmit: SubmitHandler<IVerifyEmailForm> = async () => {
@@ -48,6 +52,8 @@ export function VerifyEmailForm({setPendingVerification}: IVerifyEmailFormProps)
             await signUp?.prepareEmailAddressVerification({
                 strategy: 'email_code',
             })
+            setTimer(59)
+            setShowTimer(true)
         } catch (error) {
             console.log('resend code error:', error)
         }
@@ -82,10 +88,26 @@ export function VerifyEmailForm({setPendingVerification}: IVerifyEmailFormProps)
         setPendingVerification(false)
     }
 
-      useOnClickOutside(emailVefiryRef, handleClickOutside)
+    useOnClickOutside(emailVefiryRef, handleClickOutside)
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setTimer((prevTimer) => prevTimer - 1)
+        }, 1000)
+        if (timer < 1) setShowTimer(false)
+
+        return () => clearInterval(intervalId)
+    }, [])
+
+    useEffect(() => {
+        if (timer < 1) {
+            setShowTimer(false)
+            setTimer(59)
+        }
+    }, [timer])
 
     return (
-        <div  className={styles.verifiedForm_wrapper}>
+        <div className={styles.verifiedForm_wrapper}>
             <form ref={emailVefiryRef} onSubmit={handleSubmit(onSubmit)}>
                 <Mail size={30} color="white" />
                 <label>Email verification</label>
@@ -111,13 +133,23 @@ export function VerifyEmailForm({setPendingVerification}: IVerifyEmailFormProps)
                     <p className={styles.problems}>
                         Are you facing any problems with receiving the code?
                     </p>
+                    <div className={styles.resendCode_wrapper}>
+                        <button
+                            onClick={resendCode}
+                            style={showTimer ? {cursor:"auto", color: "#5e5e61"} : {}}
+                            disabled={showTimer ? true : false}
+                            className={styles.resendCodeButton}
+                        >
+                            Resend code
+                        </button>
+                        {showTimer && <p>0:{timer} sec</p>}
+                    </div>
                     <button
-                        onClick={resendCode}
-                        className={styles.resendCodeButton}
+                        onClick={handleClickOutside}
+                        className={styles.goBackButton}
                     >
-                        Resend code
+                        Go back
                     </button>
-                    <button onClick={handleClickOutside} className={styles.goBackButton}>Go back</button>
                 </div>
             </form>
         </div>

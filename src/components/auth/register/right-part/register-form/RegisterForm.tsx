@@ -52,6 +52,8 @@ export function RegisterForm() {
         setShowPassword(!showPassword)
     }
 
+   
+
     if (!isLoaded) return <GlobalLoader />
 
     return (
@@ -201,9 +203,7 @@ export function RegisterForm() {
                 </div>
             </form>
             {pendingVerification && (
-                <VerifyEmailForm
-                    setPendingVerification={setPendingVerification}
-                />
+            <VerifyEmailForm setPendingVerification={setPendingVerification} />
             )}
         </>
     )
