@@ -1,7 +1,7 @@
 import { PAGES } from '@/constants/pages-url.constants'
 import { IResetPasswordForm } from '@/types/auth.types'
 import { useSignIn } from '@clerk/nextjs'
-import { LockOpen } from 'lucide-react'
+import { Eye, EyeOff, LockOpen } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { SetStateAction, useRef, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
@@ -18,6 +18,7 @@ export function ResetPasswordForm({
     const inputRefs = useRef<(HTMLInputElement | null)[]>([])
     const { signIn, setActive } = useSignIn()
     const [code, setCode] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
     const { replace } = useRouter()
     const {
         register,
@@ -75,20 +76,19 @@ export function ResetPasswordForm({
             })
             .catch((error) => {
                 if (error.errors[0]?.code === 'form_code_incorrect') {
-                    toast.error(
-                        'Invalid reset code!'
-                    )
+                    toast.error('Invalid reset code!')
                 }
                 if (error.errors[0]?.code === 'verification_failed') {
                     toast.error(
                         'Too many failed attempts, try again to recieve a reset code'
                     )
                 }
-                console.error(
-                    'reset password error',
-                    JSON.stringify(error)
-                )
+                console.error('reset password error', JSON.stringify(error))
             })
+    }
+
+    const handleClickShowPassword = () => {
+        setShowPassword(!showPassword)
     }
 
     return (
@@ -101,21 +101,36 @@ export function ResetPasswordForm({
                 <LockOpen size={30} color="white" />
                 <label htmlFor="password">New password</label>
                 <p>Enter your new password</p>
-                <input
-                    {...register('newPassword', {
-                        required: true,
-                        minLength: {
-                            value: 10,
-                            message: 'Password requires min 10 characters',
-                        },
-                        pattern: {
-                            value: /\d/,
-                            message: 'Password requires at least one digit',
-                        },
-                    })}
-                    type="password"
-                    placeholder="Enter your new password"
-                />
+                <div className={styles.password_wrapper}>
+                    {showPassword ? (
+                        <Eye
+                            onClick={handleClickShowPassword}
+                            className={styles.eye}
+                            color="white"
+                        />
+                    ) : (
+                        <EyeOff
+                            onClick={handleClickShowPassword}
+                            className={styles.eye}
+                            color="white"
+                        />
+                    )}
+                    <input
+                        {...register('newPassword', {
+                            required: true,
+                            minLength: {
+                                value: 10,
+                                message: 'Password requires min 10 characters',
+                            },
+                            pattern: {
+                                value: /\d/,
+                                message: 'Password requires at least one digit',
+                            },
+                        })}
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Enter your new password"
+                    />
+                </div>
 
                 <p>Enter the code that was sent to your email</p>
                 <div className={styles.inputs_row}>

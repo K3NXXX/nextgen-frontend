@@ -26,18 +26,26 @@ export function LoginForm() {
     } = useForm<IRegisterForm>({ reValidateMode: 'onSubmit' })
 
     const onSubmit: SubmitHandler<IRegisterForm> = async (data) => {
-        const result = await signIn?.create({
-            password: data.password,
-            identifier: data.email,
-        })
-        if (result?.status === 'complete') {
-            if (setActive) {
-                await setActive({ session: result.createdSessionId })
-                toast.success('Login was successful!')
-                replace(PAGES.HOME)
-                reset()
+        try {
+            const result = await signIn?.create({
+                password: data.password,
+                identifier: data.email,
+            })
+            if (result?.status === 'complete') {
+                if (setActive) {
+                    await setActive({ session: result.createdSessionId })
+                    toast.success('Login was successful!')
+                    replace(PAGES.HOME)
+                    reset()
+                }
             }
+        } catch (error: any) {
+            if (error.errors[0]?.code === "form_identifier_not_found") {
+                toast.error("Incorrect email or password!")
+            }
+           console.log("log in submit error: ", JSON.stringify(error))
         }
+        
     }
 
     const handleClickShowPassword = () => {

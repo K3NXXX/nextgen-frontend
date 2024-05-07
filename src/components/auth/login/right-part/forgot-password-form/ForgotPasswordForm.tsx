@@ -34,7 +34,7 @@ export function ForgotPasswordForm({
             })
             .then((_) => {
                 setSuccessfulCreation(true)
-                toast.success("We sent you a reset code on your email!")
+                toast.success("We sent you a reset code to your email!")
             })
             .catch((err) => {
                 console.error('error', err.errors[0].longMessage)
