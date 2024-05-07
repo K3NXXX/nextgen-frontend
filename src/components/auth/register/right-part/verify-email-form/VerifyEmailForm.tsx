@@ -42,7 +42,17 @@ export function VerifyEmailForm({
                 toast.success('Registration was successful!')
                 reset()
             }
-        } catch (error) {
+        } catch (error: any) {
+            if (error.errors[0]?.code === 'form_code_incorrect') {
+                toast.error(
+                    'Invalid reset code!'
+                )
+            }
+            if (error.errors[0]?.code === 'verification_failed') {
+                toast.error(
+                    'Too many failed attempts, try again to recieve a reset code'
+                )
+            }
             console.log('on submit error:', error)
         }
     }
@@ -94,7 +104,6 @@ export function VerifyEmailForm({
         const intervalId = setInterval(() => {
             setTimer((prevTimer) => prevTimer - 1)
         }, 1000)
-        if (timer < 1) setShowTimer(false)
 
         return () => clearInterval(intervalId)
     }, [])
@@ -136,7 +145,11 @@ export function VerifyEmailForm({
                     <div className={styles.resendCode_wrapper}>
                         <button
                             onClick={resendCode}
-                            style={showTimer ? {cursor:"auto", color: "#5e5e61"} : {}}
+                            style={
+                                showTimer
+                                    ? { cursor: 'auto', color: '#5e5e61' }
+                                    : {}
+                            }
                             disabled={showTimer ? true : false}
                             className={styles.resendCodeButton}
                         >

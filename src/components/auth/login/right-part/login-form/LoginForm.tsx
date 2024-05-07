@@ -10,16 +10,12 @@ import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { FaApple, FaFacebook, FaGoogle } from 'react-icons/fa'
 import { toast } from 'react-toastify'
+import { ForgotPasswordForm } from '../forgot-password-form/ForgotPasswordForm'
 import styles from './LoginForm.module.scss'
 
 export function LoginForm() {
-    const [successfulCreation, setSuccessfulCreation] = useState(false)
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [code, setCode] = useState('')
-    const [secondFactor, setSecondFactor] = useState(false)
-    const [error, setError] = useState('')
     const { signIn, setActive } = useSignIn()
+    const [clickForgotPassword, setClickForgotPassword] = useState(false)
     const { replace } = useRouter()
     const [showPassword, setShowPassword] = useState(false)
     const {
@@ -42,22 +38,6 @@ export function LoginForm() {
                 reset()
             }
         }
-    }
-
-    // Send the password reset code to the user's email
-    async function forgotPassword(e: React.FormEvent) {
-        e.preventDefault()
-        await signIn
-            ?.create({
-                strategy: 'reset_password_email_code',
-                identifier: 'xxvolodyax7@gmail.com',
-            })
-            .then((_) => {
-                setSuccessfulCreation(true)
-            })
-            .catch((err) => {
-                console.error('error', err.errors[0].longMessage)
-            })
     }
 
     const handleClickShowPassword = () => {
@@ -144,9 +124,12 @@ export function LoginForm() {
                     Don't have an account?{' '}
                     <Link href={PAGES.REGISTER}>Sign up</Link>
                 </p>
-                <p onClick={forgotPassword} className={styles.forgotPassword}>
-                    <Link href={''}>Forgot your password?</Link>
-                </p>
+                <button
+                    onClick={() => setClickForgotPassword(!clickForgotPassword)}
+                    className={styles.forgotPassword}
+                >
+                    Forgot your password?
+                </button>
                 <div className={styles.errors}>
                     {errors.password?.message &&
                         toast.error(errors.password.message, {
@@ -158,50 +141,11 @@ export function LoginForm() {
                         })}
                 </div>
             </form>
-
-            {!successfulCreation && (
-                <>
-                    <label htmlFor="email">
-                        Please provide your email address
-                    </label>
-                    <input
-                        type="email"
-                        placeholder="e.g john@doe.com"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-
-                    <button>Send password reset code</button>
-                    {error && <p>{error}</p>}
-                </>
-            )}
-
-            {successfulCreation && (
-                <div className={styles.forgotPassword__wrapper}>
-                    <form>
-                        <label htmlFor="password">
-                            Enter your new password
-                        </label>
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-
-                        <label htmlFor="password">
-                            Enter the password reset code that was sent to your
-                            email
-                        </label>
-                        <input
-                            type="text"
-                            value={code}
-                            onChange={(e) => setCode(e.target.value)}
-                        />
-
-                        <button>Reset</button>
-                        {error && <p>{error}</p>}
-                    </form>
-                </div>
+            {clickForgotPassword && (
+                <ForgotPasswordForm
+                setClickForgotPassword={setClickForgotPassword}
+                    clickForgotPassword={clickForgotPassword}
+                />
             )}
         </>
     )

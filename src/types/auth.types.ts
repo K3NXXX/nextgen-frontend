@@ -13,3 +13,11 @@ export interface IVerifyEmailForm {
 	digitFive: number, 
 	digitSix: number, 
 }
+
+export interface IForgotPasswordForm {
+	email: string,
+}
+
+export interface IResetPasswordForm {
+	newPassword: string,
+}

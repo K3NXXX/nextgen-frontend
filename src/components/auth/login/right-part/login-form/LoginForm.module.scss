@@ -1,6 +1,8 @@
 .form {
     border: 1px solid white;
     border-radius: 30px;
+    display: flex;
+    flex-direction: column;
     padding: 45px;
     width: 435px;
     background: linear-gradient(
@@ -153,14 +155,14 @@
     }
     .forgotPassword {
         text-align: center;
-        a {
-            font-size: 14px;
-            font-weight: 700;
-            line-height: 140%;
-            letter-spacing: 0%;
-            text-align: center;
-            color: rgb(255, 255, 255);
-        }
+        background-color: transparent;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 140%;
+        letter-spacing: 0%;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        margin: 0 auto;
     }
 }
 
