@@ -29,23 +29,6 @@
         text-align: center;
         margin-bottom: 24px;
     }
-    .register_ways {
-        display: flex;
-        justify-content: center;
-        gap: 0 15px;
-        margin-bottom: 43px;
-        .register_ways_items {
-            background-color: transparent;
-            border-radius: 20px;
-            padding: 25px;
-            border: 1px solid white;
-            cursor: pointer;
-            transition: 0.3s ease;
-            &:hover {
-                background-color: rgb(255, 255, 255, 0.3);
-            }
-        }
-    }
     .or {
         color: rgb(160, 174, 192);
         font-size: 18px;
@@ -81,7 +64,7 @@
             padding-left: 5px;
         }
         input {
-            padding: 15px 20px;
+            padding: 15px 50px 15px 20px;
             border: 1px solid white;
             border-radius: 20px;
             width: 100%;
@@ -151,4 +134,3 @@
         }
     }
 }
-

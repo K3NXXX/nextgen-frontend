@@ -12,6 +12,7 @@ import { FaApple, FaFacebook, FaGoogle } from 'react-icons/fa'
 import { toast } from 'react-toastify'
 import { ForgotPasswordForm } from '../forgot-password-form/ForgotPasswordForm'
 import styles from './LoginForm.module.scss'
+import { AuthWayButtons } from '@/components/ui/auth-way-buttons/AuthWayButtons'
 
 export function LoginForm() {
     const { signIn, setActive } = useSignIn()
@@ -56,17 +57,7 @@ export function LoginForm() {
         <>
             <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                 <p className={styles.register}>Log in with</p>
-                <div className={styles.register_ways}>
-                    <div className={styles.register_ways_items}>
-                        <FaFacebook color="white" size={25} />
-                    </div>
-                    <div className={styles.register_ways_items}>
-                        <FaApple color="white" size={25} />
-                    </div>
-                    <div className={styles.register_ways_items}>
-                        <FaGoogle color="white" size={25} />
-                    </div>
-                </div>
+                <AuthWayButtons/>
                 <p className={styles.or}>or</p>
                 <div className={styles.input_row}>
                     <label>Email</label>

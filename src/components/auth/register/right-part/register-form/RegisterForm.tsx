@@ -8,13 +8,14 @@ import { Eye, EyeOff } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { FaApple, FaFacebook, FaGoogle } from 'react-icons/fa'
 import { toast } from 'react-toastify'
 import { VerifyEmailForm } from '../verify-email-form/VerifyEmailForm'
 import styles from './RegisterForm.module.scss'
+import { AuthWayButtons } from '@/components/ui/auth-way-buttons/AuthWayButtons'
 
 export function RegisterForm() {
     const { signUp, isLoaded } = useSignUp()
+
     const [pendingVerification, setPendingVerification] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
     const {
@@ -52,25 +53,13 @@ export function RegisterForm() {
         setShowPassword(!showPassword)
     }
 
-   
-
     if (!isLoaded) return <GlobalLoader />
 
     return (
         <>
             <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                 <p className={styles.register}>Register with</p>
-                <div className={styles.register_ways}>
-                    <div className={styles.register_ways_items}>
-                        <FaFacebook color="white" size={25} />
-                    </div>
-                    <div className={styles.register_ways_items}>
-                        <FaApple color="white" size={25} />
-                    </div>
-                    <div className={styles.register_ways_items}>
-                        <FaGoogle color="white" size={25} />
-                    </div>
-                </div>
+                <AuthWayButtons/>
                 <p className={styles.or}>or</p>
                 <div className={styles.input_row}>
                     <label>First name</label>
@@ -203,7 +192,9 @@ export function RegisterForm() {
                 </div>
             </form>
             {pendingVerification && (
-            <VerifyEmailForm setPendingVerification={setPendingVerification} />
+                <VerifyEmailForm
+                    setPendingVerification={setPendingVerification}
+                />
             )}
         </>
     )
