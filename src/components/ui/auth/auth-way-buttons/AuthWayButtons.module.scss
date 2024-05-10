@@ -1,0 +1,18 @@
+.register_ways {
+    display: flex;
+    justify-content: center;
+    gap: 0 15px;
+    margin-bottom: 43px;
+    .register_ways_items {
+        user-select: none;
+        background-color: transparent;
+        border-radius: 20px;
+        padding: 25px;
+        border: 1px solid white;
+        cursor: pointer;
+        transition: 0.3s ease;
+        &:hover {
+            background-color: rgb(255, 255, 255, 0.3);
+        }
+    }
+}

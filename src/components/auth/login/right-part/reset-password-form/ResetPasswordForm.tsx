@@ -1,3 +1,4 @@
+import { VerificationCode } from '@/components/ui/auth/verification-code/VerificationCode'
 import { PAGES } from '@/constants/pages-url.constants'
 import { IResetPasswordForm } from '@/types/auth.types'
 import { useSignIn } from '@clerk/nextjs'
@@ -15,9 +16,8 @@ export function ResetPasswordForm({
     setSuccessfulCreation,
 }: IResetPasswordFormProps) {
     const resetPasswordFormRef = useRef<HTMLFormElement>(null)
-    const inputRefs = useRef<(HTMLInputElement | null)[]>([])
     const { signIn, setActive } = useSignIn()
-    const [code, setCode] = useState('')
+    const [resetCode, setResetCode] = useState('')
     const [showPassword, setShowPassword] = useState(false)
     const { replace } = useRouter()
     const {
@@ -32,36 +32,11 @@ export function ResetPasswordForm({
         setSuccessfulCreation(false)
     }
 
-    const handleInputChange = (
-        index: number,
-        e: React.ChangeEvent<HTMLInputElement>
-    ) => {
-        const value = e.target.value
-        setCode((prevCode) => {
-            const newCode = prevCode.split('')
-            newCode[index] = value
-            return newCode.join('')
-        })
-
-        if (value && index < inputRefs.current.length - 1) {
-            inputRefs.current[index + 1]?.focus()
-        }
-    }
-
-    const handleKeyDown = (
-        index: number,
-        e: React.KeyboardEvent<HTMLInputElement>
-    ) => {
-        if (e.key === 'Backspace' && index > 0 && !e.currentTarget.value) {
-            inputRefs.current[index - 1]?.focus()
-        }
-    }
-
     const resetPassword: SubmitHandler<IResetPasswordForm> = async (data) => {
         await signIn
             ?.attemptFirstFactor({
                 strategy: 'reset_password_email_code',
-                code,
+                code: resetCode,
                 password: data.newPassword,
             })
             .then((result: any) => {
@@ -127,27 +102,12 @@ export function ResetPasswordForm({
                                 message: 'Password requires at least one digit',
                             },
                         })}
-                        type={showPassword ? "text" : "password"}
+                        type={showPassword ? 'text' : 'password'}
                         placeholder="Enter your new password"
                     />
                 </div>
-
                 <p>Enter the code that was sent to your email</p>
-                <div className={styles.inputs_row}>
-                    {[...new Array(6)].map((_, index) => (
-                        <input
-                            key={index}
-                            value={code[index] || ''}
-                            onChange={(e) => handleInputChange(index, e)}
-                            onKeyDown={(e) => handleKeyDown(index, e)}
-                            maxLength={1}
-                            ref={(el) => {
-                                inputRefs.current[index] = el
-                            }}
-                        />
-                    ))}
-                </div>
-
+                <VerificationCode setResetCode={setResetCode} />
                 <button className={styles.onSubmitButton}>
                     Reset password
                 </button>

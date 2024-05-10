@@ -1,4 +1,7 @@
 'use client'
+
+import { AuthWayButtons } from '@/components/ui/auth/auth-way-buttons/AuthWayButtons'
+import { RegisterErrors } from '@/components/ui/auth/register-errors/RegisterErrors'
 import { GlobalLoader } from '@/components/ui/global-loader/GlobalLoader'
 import { PAGES } from '@/constants/pages-url.constants'
 import type { IRegisterForm } from '@/types/auth.types'
@@ -11,11 +14,9 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import { VerifyEmailForm } from '../verify-email-form/VerifyEmailForm'
 import styles from './RegisterForm.module.scss'
-import { AuthWayButtons } from '@/components/ui/auth-way-buttons/AuthWayButtons'
 
 export function RegisterForm() {
     const { signUp, isLoaded } = useSignUp()
-
     const [pendingVerification, setPendingVerification] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
     const {
@@ -59,7 +60,7 @@ export function RegisterForm() {
         <>
             <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                 <p className={styles.register}>Register with</p>
-                <AuthWayButtons/>
+                <AuthWayButtons />
                 <p className={styles.or}>or</p>
                 <div className={styles.input_row}>
                     <label>First name</label>
@@ -172,25 +173,8 @@ export function RegisterForm() {
                     Already have an account?{' '}
                     <Link href={PAGES.LOGIN}>Sign in</Link>
                 </p>
-                <div className={styles.errors}>
-                    {errors.password?.message &&
-                        toast.error(errors.password.message, {
-                            toastId: 'passwordId',
-                        })}
-                    {errors.firstName?.message &&
-                        toast.error(errors.firstName.message, {
-                            toastId: 'nameId',
-                        })}
-                    {errors.lastName?.message &&
-                        toast.error(errors.lastName.message, {
-                            toastId: 'nameId',
-                        })}
-                    {errors.email?.message &&
-                        toast.error(errors.email.message, {
-                            toastId: 'emailId',
-                        })}
-                </div>
             </form>
+            <RegisterErrors errors={errors} />
             {pendingVerification && (
                 <VerifyEmailForm
                     setPendingVerification={setPendingVerification}
