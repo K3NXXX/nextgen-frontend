@@ -2,7 +2,6 @@
 
 import { AuthWayButtons } from '@/components/ui/auth/auth-way-buttons/AuthWayButtons'
 import { RegisterErrors } from '@/components/ui/auth/register-errors/RegisterErrors'
-import { GlobalLoader } from '@/components/ui/global-loader/GlobalLoader'
 import { PAGES } from '@/constants/pages-url.constants'
 import type { IRegisterForm } from '@/types/auth.types'
 import { useSignUp } from '@clerk/nextjs'
@@ -14,6 +13,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import { VerifyEmailForm } from '../verify-email-form/VerifyEmailForm'
 import styles from './RegisterForm.module.scss'
+import RegisterFormSkeleton from '@/components/ui/skeletons/RegisterFormSkeleton'
 
 export function RegisterForm() {
     const { signUp, isLoaded } = useSignUp()
@@ -54,8 +54,7 @@ export function RegisterForm() {
         setShowPassword(!showPassword)
     }
 
-    if (!isLoaded) return <GlobalLoader />
-
+    if (!isLoaded) return <RegisterFormSkeleton/>
     return (
         <>
             <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
@@ -166,9 +165,12 @@ export function RegisterForm() {
                     <Switch />
                     <p>Remember me</p>
                 </div>
-                <button type="submit" className={styles.submitButton}>
-                    Sign up
-                </button>
+                <div className={styles.button__wrapper}>
+                    <button type="submit" className={styles.submitButton}>
+                        Sign up
+                    </button>
+                </div>
+
                 <p className={styles.haveAccout}>
                     Already have an account?{' '}
                     <Link href={PAGES.LOGIN}>Sign in</Link>
