@@ -8,7 +8,9 @@ interface IHeaderItemProps {
 export function HeaderItem({ link }: IHeaderItemProps) {
     return (
         <Link href={link.url} className={styles.root}>
-            <link.icon color="white" />
+            <div className={styles.icon__wrapper}>
+                <link.icon color="white" />
+            </div>
             <p>{link.name}</p>
         </Link>
     )

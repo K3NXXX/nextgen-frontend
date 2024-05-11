@@ -6,24 +6,36 @@
         rgb(2, 5, 21) 85.138%
     );
 }
-.header {
+
+.wrapper {
+    max-width: 1008px;
     position: absolute;
     left: 0;
     right: 0;
-    background-color: transparent;
-    padding: 42px 23px;
-    max-width: 988px;
-    margin: 0 auto;
-    backdrop-filter: blur(50px);
-    border: 1px solid white;
-    margin-top: 20px;
     z-index: 30;
-    border-radius: 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .navigation {
+    margin: 0 auto;
+    padding: 0 10px;
+    .header {
+        background-color: transparent;
+        padding: 42px 23px;
+        backdrop-filter: blur(50px);
+        border: 1px solid white;
+        margin-top: 20px;
+        border-radius: 30px;
         display: flex;
-        gap: 0 30px;
+        justify-content: space-between;
+        align-items: center;
+        @media (max-width:670px) {
+            flex-direction: column;
+            gap: 15px 0px;
+            padding: 20px 10px;
+        }
+        .navigation {
+            display: flex;
+            gap: 0 30px;
+            @media (max-width:486px) {
+                gap: 0 20px;
+            }
+        }
     }
 }

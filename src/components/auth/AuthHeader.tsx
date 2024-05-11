@@ -9,15 +9,17 @@ import { HeaderItem } from './header-item/HeaderItem'
 
 export function AuthHeader() {
     return (
-        <header className={styles.header}>
-            <Link href={PAGES.HOME}>
-                <Image width={140} height={25} alt="logo" src={logo} />
-            </Link>
-            <div className={styles.navigation}>
-                {authHeaderMenu.map((link: IAuthHeaderMenu) => (
-                    <HeaderItem key={link.id} link={link} />
-                ))}
-            </div>
-        </header>
+        <div className={styles.wrapper}>
+            <header className={styles.header}>
+                <Link href={PAGES.HOME}>
+                    <Image width={140} height={25} alt="logo" src={logo} />
+                </Link>
+                <div className={styles.navigation}>
+                    {authHeaderMenu.map((link: IAuthHeaderMenu) => (
+                        <HeaderItem key={link.id} link={link} />
+                    ))}
+                </div>
+            </header>
+        </div>
     )
 }
