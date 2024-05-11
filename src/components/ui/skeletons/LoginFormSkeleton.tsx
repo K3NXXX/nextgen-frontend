@@ -1,12 +1,12 @@
 import ContentLoader from 'react-content-loader'
 
-const RegisterFormSkeleton = () => (
+const LoginFormSkeleton = () => (
     <div style={{ border: '1px solid white', borderRadius: '30px' }}>
         <ContentLoader
             speed={3}
-            width={435}
-            height={700}
-            viewBox="0 0 435 700"
+            width={433}
+            height={697}
+            viewBox="0 0 433 697"
             backgroundColor="#333b7a"
             foregroundColor="#0f123b"
         >
@@ -22,8 +22,9 @@ const RegisterFormSkeleton = () => (
             <rect x="172" y="48" rx="5" ry="5" width="90" height="22" />
             <rect x="47" y="360" rx="5" ry="5" width="71" height="15" />
             <rect x="47" y="260" rx="5" ry="5" width="71" height="15" />
+            <rect x="46" y="382" rx="23" ry="23" width="343" height="52" />
         </ContentLoader>
     </div>
 )
 
-export default RegisterFormSkeleton
+export default LoginFormSkeleton

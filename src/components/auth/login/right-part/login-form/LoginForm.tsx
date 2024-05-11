@@ -1,7 +1,9 @@
 'use client'
 import { AuthWayButtons } from '@/components/ui/auth/auth-way-buttons/AuthWayButtons'
+import { LoginErrors } from '@/components/ui/auth/login-errors/LoginErrors'
+import LoginFormSkeleton from '@/components/ui/skeletons/LoginFormSkeleton'
 import { PAGES } from '@/constants/pages-url.constants'
-import type { ILoginForm, IRegisterForm } from '@/types/auth.types'
+import type { ILoginForm } from '@/types/auth.types'
 import { useSignIn } from '@clerk/nextjs'
 import { Switch } from '@mui/material'
 import { Eye, EyeOff } from 'lucide-react'
@@ -12,12 +14,11 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import { ForgotPasswordForm } from '../forgot-password-form/ForgotPasswordForm'
 import styles from './LoginForm.module.scss'
-import { LoginErrors } from '@/components/ui/auth/login-errors/LoginErrors'
 
 export function LoginForm() {
     const [clickForgotPassword, setClickForgotPassword] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
-    const { signIn, setActive } = useSignIn()
+    const { signIn, isLoaded, setActive } = useSignIn()
     const { replace } = useRouter()
     const {
         register,
@@ -51,6 +52,8 @@ export function LoginForm() {
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword)
     }
+
+    if (!isLoaded) return <LoginFormSkeleton />
 
     return (
         <>
@@ -115,9 +118,11 @@ export function LoginForm() {
                     <Switch />
                     <p>Remember me</p>
                 </div>
-                <button type="submit" className={styles.submitButton}>
-                    Log in
-                </button>
+                <div className={styles.button__wrapper}>
+                    <button type="submit" className={styles.submitButton}>
+                        Log in
+                    </button>
+                </div>
                 <p className={styles.haveAccout}>
                     Don't have an account?{' '}
                     <Link href={PAGES.REGISTER}>Sign up</Link>
@@ -128,7 +133,7 @@ export function LoginForm() {
                 >
                     Forgot your password?
                 </button>
-                <LoginErrors errors={errors}/>
+                <LoginErrors errors={errors} />
             </form>
             {clickForgotPassword && (
                 <ForgotPasswordForm
