@@ -1,5 +1,5 @@
-import { RegisterForm } from './register-form/RegisterForm'
 import styles from './RightPart.module.scss'
+import { RegisterForm } from './register-form/RegisterForm'
 
 export function RightPart() {
     return (

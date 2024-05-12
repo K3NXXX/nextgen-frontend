@@ -12,10 +12,7 @@
         backdrop-filter: blur(7px);
     }
     @media (max-width: 460px) {
-        width: 380px;
         padding: 20px;
-    }
-    @media (max-width: 412px) {
         width: 340px;
     }
 
@@ -115,7 +112,7 @@
             padding: 16px 140px;
             transition: 0.3s ease;
             margin-bottom: 22px;
-            @media (max-width:438px) {
+            @media (max-width: 460px) {
                 padding: 16px 120px;
             }
             &:hover {

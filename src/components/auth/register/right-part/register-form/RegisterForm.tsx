@@ -8,17 +8,22 @@ import { useSignUp } from '@clerk/nextjs'
 import { Switch } from '@mui/material'
 import { Eye, EyeOff } from 'lucide-react'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import RegisterFormMobileSkeleton from '@/components/ui/skeletons/RegisterFormMobileSkeleton'
+import RegisterFormSkeleton from '@/components/ui/skeletons/RegisterFormSkeleton'
 import { toast } from 'react-toastify'
+import { useMediaQuery } from 'usehooks-ts'
 import { VerifyEmailForm } from '../verify-email-form/VerifyEmailForm'
 import styles from './RegisterForm.module.scss'
-import RegisterFormSkeleton from '@/components/ui/skeletons/RegisterFormSkeleton'
 
 export function RegisterForm() {
     const { signUp, isLoaded } = useSignUp()
     const [pendingVerification, setPendingVerification] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
+    const [isClient, setIsClient] = useState(false)
+    const isMobile = useMediaQuery('(max-width: 460px)')
+    const isDesktop = useMediaQuery('(min-width: 461px)')
     const {
         register,
         handleSubmit,
@@ -54,7 +59,13 @@ export function RegisterForm() {
         setShowPassword(!showPassword)
     }
 
-    if (!isLoaded) return <RegisterFormSkeleton/>
+    useEffect(() => {
+        setIsClient(true)
+    }, [])
+
+    if (isClient && !isLoaded && isDesktop) return <RegisterFormSkeleton />
+    if (isClient && !isLoaded && isMobile) return <RegisterFormMobileSkeleton />
+
     return (
         <>
             <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>

@@ -1,12 +1,12 @@
 import { SITE_NAME } from '@/constants/seo.constants'
+import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata } from 'next'
-import  "./globals.scss"
-import "react-toastify/dist/ReactToastify.css";
 import { Plus_Jakarta_Sans } from 'next/font/google'
 import { ToastContainer } from 'react-toastify'
-import { ClerkProvider } from '@clerk/nextjs'
+import 'react-toastify/dist/ReactToastify.css'
+import './globals.scss'
 
-const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'], weight: "400" })
+const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'], weight: '400' })
 
 export const metadata: Metadata = {
     title: {
@@ -23,12 +23,11 @@ export default function RootLayout({
 }>) {
     return (
         <ClerkProvider>
-            <html  lang="en">
+            <html lang="en">
                 <body className={plusJakartaSans.className}>
                     {children}
-                    <ToastContainer  position='bottom-right' />
-                    
-                    </body>
+                    <ToastContainer position="bottom-right" />
+                </body>
             </html>
         </ClerkProvider>
     )
