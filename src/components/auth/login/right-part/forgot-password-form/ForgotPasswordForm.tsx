@@ -52,7 +52,7 @@ export function ForgotPasswordForm({
             {clickForgotPassword && (
                 <div className={styles.form__wrapper}>
                     {!successfulCreation && (
-                        <form
+                        <form className={styles.forgotPasswordForm}
                             ref={forgotPasswordFormRef}
                             onSubmit={handleSubmit(forgotPassword)}
                         >

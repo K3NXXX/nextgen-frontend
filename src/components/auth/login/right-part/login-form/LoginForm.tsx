@@ -2,6 +2,7 @@
 import { AuthWayButtons } from '@/components/ui/auth/auth-way-buttons/AuthWayButtons'
 import { LoginErrors } from '@/components/ui/auth/login-errors/LoginErrors'
 import LoginFormSkeleton from '@/components/ui/skeletons/LoginFormSkeleton'
+import LoginFormSkeletonMobile from '@/components/ui/skeletons/LoginFormSkeletonMobile'
 import { PAGES } from '@/constants/pages-url.constants'
 import type { ILoginForm } from '@/types/auth.types'
 import { useSignIn } from '@clerk/nextjs'
@@ -9,14 +10,18 @@ import { Switch } from '@mui/material'
 import { Eye, EyeOff } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
+import { useMediaQuery } from 'usehooks-ts'
 import { ForgotPasswordForm } from '../forgot-password-form/ForgotPasswordForm'
 import styles from './LoginForm.module.scss'
 
 export function LoginForm() {
     const [clickForgotPassword, setClickForgotPassword] = useState(false)
+    const [isClient, setIsClient] = useState(false)
+    const isMobile = useMediaQuery('(max-width: 460px)')
+    const isDesktop = useMediaQuery('(min-width: 461px)')
     const [showPassword, setShowPassword] = useState(false)
     const { signIn, isLoaded, setActive } = useSignIn()
     const { replace } = useRouter()
@@ -53,7 +58,12 @@ export function LoginForm() {
         setShowPassword(!showPassword)
     }
 
-    if (!isLoaded) return <LoginFormSkeleton />
+    useEffect(() => {
+        setIsClient(true)
+    }, [])
+
+    if (isClient && !isLoaded && isDesktop) return <LoginFormSkeleton />
+    if (isClient && !isLoaded && isMobile) return <LoginFormSkeletonMobile />
 
     return (
         <>

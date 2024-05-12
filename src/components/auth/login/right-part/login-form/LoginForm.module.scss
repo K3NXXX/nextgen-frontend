@@ -10,6 +10,13 @@
         rgba(255, 255, 255, 0) -39.666%,
         rgba(255, 255, 255, 0.04) 94.679%
     );
+    @media (max-width: 1100px) {
+        backdrop-filter: blur(7px);
+    }
+    @media (max-width: 460px) {
+        padding: 20px;
+        width: 340px;
+    }
     .errors {
         position: absolute;
     }
@@ -70,6 +77,7 @@
                 top: 13px;
                 right: 15px;
                 user-select: none;
+                z-index: 20;
             }
         }
         label {
@@ -87,6 +95,9 @@
             border: 1px solid white;
             border-radius: 20px;
             width: 100%;
+            @media (max-width: 1100px) {
+                filter: brightness(70%);
+            }
             background: linear-gradient(
                 92.69deg,
                 rgba(255, 255, 255, 0) -45.295%,
@@ -98,6 +109,7 @@
             line-height: 140%;
             letter-spacing: 0%;
             text-align: left;
+
             &::placeholder {
                 color: rgb(160, 174, 192);
                 font-size: 14px;
@@ -135,6 +147,12 @@
             padding: 16px 150px;
             transition: 0.3s ease;
             margin-bottom: 22px;
+            @media (max-width: 1100px) {
+                filter: brightness(70%);
+            }
+            @media (max-width: 460px) {
+                padding: 16px 120px;
+            }
             &:hover {
                 opacity: 0.7;
             }
@@ -156,6 +174,9 @@
             letter-spacing: 0%;
             text-align: center;
             color: rgb(255, 255, 255);
+            @media (max-width: 1100px) {
+                filter: brightness(70%);
+            }
         }
     }
     .forgotPassword {
@@ -166,8 +187,11 @@
         line-height: 140%;
         letter-spacing: 0%;
         text-align: center;
-        color: rgb(255, 255, 255);
+        color: white;
         margin: 0 auto;
+        @media (max-width: 1100px) {
+            filter: brightness(70%);
+        }
     }
 }
 
