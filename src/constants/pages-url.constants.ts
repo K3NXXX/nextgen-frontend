@@ -1,5 +1,5 @@
 class Pages {
-	private root = "/"
+	private root = "/" || "https://nextgen-frontend-seven.vercel.app"
 
 	HOME = `${this.root}`
 	REGISTER = `${this.root}register`
