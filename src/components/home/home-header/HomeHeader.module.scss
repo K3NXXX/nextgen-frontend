@@ -1,0 +1,47 @@
+.root {
+    padding: 50px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    .navigation {
+        .navigation__list {
+            display: flex;
+            align-items: center;
+            gap: 0 25px;
+            justify-content: center;
+
+            li {
+                color: rgb(143, 155, 183);
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 24px;
+                letter-spacing: 0%;
+                cursor: pointer;
+            }
+        }
+    }
+    .buttons {
+        display: flex;
+        gap: 0 25px;
+        align-items: center;
+        justify-self: right;
+
+        a {
+            backdrop-filter: blur(120px);
+            background: transparent;
+            color: rgb(143, 155, 183);
+            font-size: 16px;
+            font-weight: 400;
+            &:last-child {
+                border: 1px solid white;
+                border-radius: 68px;
+                transition: 0.3s ease;
+                padding: 10px 50px;
+
+                &:hover {
+                    background-color: rgb(64, 64, 64);
+                }
+            }
+        }
+    }
+}
