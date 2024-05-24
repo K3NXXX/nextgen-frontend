@@ -7,9 +7,8 @@ import { homeNewsItems } from '@/lists/home/home.news.items'
 import { MoveRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import introMain from '../../public/home-page/intro-main.webp'
 import styles from './Home.module.scss'
-
+const introMainSrc = '/home-page/intro-main.webp'
 export function Home() {
     return (
         <div className={styles.root}>
@@ -27,7 +26,7 @@ export function Home() {
                             imperdiet sed nullam.
                         </p>
                         <Link href={PAGES.REGISTER}>Try for free</Link>
-                        <Image width={800} src={introMain} alt="intro image" />
+                        <img width={800} src={introMainSrc} alt="intro image" />
                         <div className={styles.leftGradient}></div>
                         <div className={styles.rightGradient}></div>
                     </div>
@@ -45,7 +44,7 @@ export function Home() {
                         </div>
                         <div className={styles.features__list}>
                             {homeFeaturesItems.map((item) => (
-                                <div className={styles.features__list_item}>
+                                <div key={item.id} className={styles.features__list_item}>
                                     <Image src={item.icon} alt="feature icon" />
                                     <strong>{item.feature}</strong>
                                     <p>{item.description}</p>
@@ -62,7 +61,7 @@ export function Home() {
                         </div>
                         <div className={styles.news__list}>
                             {homeNewsItems.slice(0, 3).map((item) => (
-                                <div className={styles.news__list_item}>
+                                <div key={item.id} className={styles.news__list_item}>
                                     <Image src={item.image} alt="news image" />
                                     <strong>{item.title}</strong>
                                     <p className={styles.description}>

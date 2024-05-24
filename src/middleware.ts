@@ -3,10 +3,11 @@ import { NextResponse } from 'next/server'
 
 const isProfileRoute = createRouteMatcher(['/profile(.*)'])
 const isAuthRoute = createRouteMatcher(['/register(.*)', '/login(.*)'])
+const isDashboardPage = createRouteMatcher(['/dashboard(.*)'])
 
 export default clerkMiddleware(
     (auth, req) => {
-        if (isProfileRoute(req)) {
+        if (isProfileRoute(req) || isDashboardPage(req)) {
             auth().protect({
                 unauthenticatedUrl: 'http://localhost:3000/login',
             })

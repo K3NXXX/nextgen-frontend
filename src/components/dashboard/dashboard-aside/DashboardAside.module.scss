@@ -1,0 +1,16 @@
+.root {
+    border-radius: 20px;
+	padding: 36px 22px;
+    backdrop-filter: blur(120px);
+    background: linear-gradient(
+        157.2deg,
+        rgba(6, 11, 38, 0.94) 31.883%,
+        rgba(26, 31, 55, 0) 100%
+    );
+	.logo__wrapper {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		gap: 15px 0;
+	}
+}
