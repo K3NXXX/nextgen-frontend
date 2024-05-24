@@ -1,16 +1,60 @@
 .root {
     border-radius: 20px;
-	padding: 36px 22px;
+    padding: 36px 22px;
     backdrop-filter: blur(120px);
     background: linear-gradient(
         157.2deg,
         rgba(6, 11, 38, 0.94) 31.883%,
         rgba(26, 31, 55, 0) 100%
     );
-	.logo__wrapper {
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-		gap: 15px 0;
-	}
+    .logo__wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 15px 0;
+        margin-bottom: 23px;
+    }
+    .menu {
+        display: flex;
+        flex-direction: column;
+        gap: 12px 0;
+        padding-left: 10px;
+        .active {
+            border-radius: 15px;
+            box-shadow: 0px 3.5px 5.5px 0px rgba(0, 0, 0, 0.02);
+            background: rgb(26, 31, 55);
+            display: flex;
+            padding: 12px 85px 12px 16px;
+            gap: 0 15px;
+            align-items: center;
+        }
+        .menu__item {
+            display: flex;
+            padding: 12px 85px 12px 16px;
+            gap: 0 15px;
+            align-items: center;
+        }
+        .menu__icon {
+            padding: 8px;
+            border-radius: 12px;
+            box-shadow: 0px 3.5px 5.5px 0px rgba(0, 0, 0, 0.02);
+        }
+        p {
+            color: rgb(255, 255, 255);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 100%;
+            letter-spacing: 0%;
+        }
+        .accountPages {
+            color: rgb(255, 255, 255);
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 150%;
+            letter-spacing: 0%;
+			text-transform: uppercase;
+			padding-left: 16px;
+			margin: 10px 0;
+        }
+    }
 }
