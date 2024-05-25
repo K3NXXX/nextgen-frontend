@@ -1,7 +1,10 @@
 'use client'
 
 import { Logo } from '@/components/ui/logo/Logo'
-import { dashboardMenuAccountPages, dashboardMenuMainPages } from '@/lists/dashboard/dashboard.menu.items'
+import {
+    dashboardMenuAccountPages,
+    dashboardMenuMainPages,
+} from '@/lists/dashboard/dashboard.menu.items'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -38,7 +41,7 @@ export function DashboardAside() {
                                 color={
                                     pathname === item.url ? 'white' : '#0075FF'
                                 }
-                                size={40}
+                                size={33}
                             />
                         </div>
                         <p>{item.label}</p>
@@ -66,7 +69,7 @@ export function DashboardAside() {
                                 color={
                                     pathname === item.url ? 'white' : '#0075FF'
                                 }
-                                size={40}
+                                size={33}
                             />
                         </div>
                         <p>{item.label}</p>

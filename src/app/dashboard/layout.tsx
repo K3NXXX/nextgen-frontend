@@ -6,11 +6,13 @@ import styles from './Dashboard.module.scss'
 export default function Layout({ children }: PropsWithChildren<unknown>) {
     return (
         <div className={styles.root}>
-            <DashboardAside />
-            <main className={styles.main}>
-                <DashboardHeader />
-                {children}
-            </main>
+            <div className={styles.container}>
+                <DashboardAside />
+                <main className={styles.main}>
+                    <DashboardHeader />
+                    {children}
+                </main>
+            </div>
         </div>
     )
 }
