@@ -49,7 +49,7 @@
         background: linear-gradient(
             128.44deg,
             rgba(6, 11, 40, 0.94) 19.412%,
-            rgba(10, 14, 35, 0.49) 76.646%
+            rgba(17, 25, 64, 0.49) 76.646%
         );
         padding: 26px;
         .rate {
@@ -68,30 +68,56 @@
         }
         .chart {
             position: relative;
-            
+            .chart__wrapper {
+                position: relative;
+                border-radius: 35px;
+                color: rgb(0, 117, 255);
+                div {
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    top: -65px;
+                    left: 127px;
+                    z-index: 15;
+                    background: rgb(0, 117, 255);
+                    border-radius: 50%;
+                    width: 50px;
+                    height: 50px;
+                }
+            }
             .progress {
                 z-index: 5;
-                top: -97px;
-                left: 50px;
+                top: -110px;
+                left: 40px;
                 position: absolute;
                 svg {
                     transform: rotate(-90deg);
                 }
-                
             }
             .chart__stats {
                 position: relative;
                 z-index: 10;
                 border-radius: 20px;
-
-                background: rgba(45, 76, 255);
-                padding: 25px 17px;
+                border-radius: 20px;
+                background: linear-gradient(
+                    175.7deg,
+                    rgba(28, 50, 177, 0.74) 24.782%,
+                    rgba(10, 14, 35, 0.71) 96.107%
+                );
+                padding: 25px 25px 25px 39px;
                 display: flex;
                 justify-content: space-between;
                 color: rgb(160, 174, 192);
                 font-size: 12px;
                 font-weight: 400;
                 line-height: 100%;
+                .min {
+                    width: 34px;
+                }
+                .max {
+                    width: 36px;
+                }
                 .total__wrapper {
                     display: flex;
                     flex-direction: column;
@@ -102,6 +128,100 @@
                         font-size: 28px;
                         font-weight: 700;
                         line-height: 100%;
+                    }
+                }
+            }
+        }
+    }
+    .referral {
+        padding: 27px 31px;
+        border-radius: 20px;
+        backdrop-filter: blur(120px);
+        background: linear-gradient(
+            175.7deg,
+            rgba(6, 11, 40, 0.74) 7.898%,
+            rgba(14, 21, 58, 0.71) 119.968%
+        );
+        .referral__top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 41px;
+            p {
+                color: rgb(255, 255, 255);
+                font-size: 18px;
+                font-weight: 700;
+                line-height: 140%;
+            }
+            div {
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 37px;
+                height: 37px;
+                border-radius: 12px;
+                background: #22234b;
+            }
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+            .left {
+                display: flex;
+                flex-direction: column;
+                gap: 21px 0;
+                max-width: 217px;
+                .invited,
+                .bonus {
+                    padding: 20px 90px 29px 24px;
+                    border-radius: 20px;
+                    backdrop-filter: blur(120px);
+                    background: linear-gradient(
+                        175.7deg,
+                        rgb(6, 12, 41) 14.588%,
+                        rgba(4, 12, 48, 0.5) 110.513%
+                    );
+                    p {
+                        color: rgb(160, 174, 192);
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 100%;
+                        margin-bottom: 5px;
+                    }
+                    span {
+                        color: rgb(255, 255, 255);
+                        font-size: 18px;
+                        font-weight: 700;
+                        line-height: 140%;
+                    }
+                }
+            }
+            .right {
+                .right__wrapper {
+                    position: relative;
+                    .info {
+                        position: absolute;
+                        top: 55px;
+                        left: 0;
+                        right: 0;       
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        p {
+                            color: rgb(160, 174, 192);
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 100%;
+                            margin-bottom: 5px;
+                        }
+                        span {
+                            color: rgb(255, 255, 255);
+                            font-size: 50px;
+                            font-weight: 700;
+                            line-height: 100%;
+                            letter-spacing: 0%;
+                            text-align: left;
+                        }
                     }
                 }
             }

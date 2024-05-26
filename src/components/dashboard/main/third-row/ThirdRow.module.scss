@@ -1,0 +1,141 @@
+.root {
+    .wrapper {
+        display: grid;
+        grid-template-columns: 920px 652px;
+        gap: 0 24px;
+
+        .salesOverview {
+            padding: 28px 21px;
+            border-radius: 20px;
+            backdrop-filter: blur(120px);
+            background: linear-gradient(
+                175.7deg,
+                rgba(6, 11, 40, 0.74) 12.226%,
+                rgba(10, 14, 35, 0.71) 113.851%
+            );
+            :global {
+                .MuiChartsAxis-line {
+                    display: none;
+                }
+                .MuiChartsAxis-tickLabel {
+                    fill: rgba(255, 255, 255, 0.87);
+                }
+                .MuiChartsGrid-line {
+                    stroke: #56577a;
+                }
+            }
+
+            .salesOverview__top {
+                display: flex;
+                flex-direction: column;
+                gap: 5px 0;
+                margin-bottom: 00px;
+                .sales {
+                    color: rgb(255, 255, 255);
+                    font-size: 18px;
+                    font-weight: 700;
+                    line-height: 140%;
+                }
+                .stats {
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 140%;
+                    color: rgb(160, 174, 192);
+                    span {
+                        color: rgb(1, 181, 116);
+                    }
+                }
+            }
+        }
+        .usersActivity {
+            padding: 16px 16px 32px 16px;
+            border-radius: 20px;
+            backdrop-filter: blur(120px);
+            background: linear-gradient(
+                175.7deg,
+                rgb(6, 12, 41) 18.662%,
+                rgba(4, 12, 48, 0.5) 104.755%
+            );
+            .chart {
+                margin-bottom: 24px;
+                border-radius: 20px;
+                backdrop-filter: blur(120px);
+                background: linear-gradient(
+                    175.7deg,
+                    rgb(6, 12, 41) 18.662%,
+                    rgba(4, 12, 48, 0.5) 104.755%
+                );
+                :global {
+                    .MuiChartsAxis-line {
+                        stroke: white;
+                    }
+                    .MuiChartsAxis-directionX,
+                    .MuiChartsAxis-line {
+                        display: none;
+                    }
+                    .MuiChartsAxis-tickLabel {
+                        fill: white;
+                    }
+                    .MuiBarElement-series-auto-generated-id-0 {
+                        fill: white;
+                    }
+                }
+            }
+            .content {
+                .active {
+                    color: rgb(255, 255, 255);
+                    font-size: 18px;
+                    font-weight: 700;
+                    line-height: 140%;
+                    margin-bottom: 6px;
+                }
+                .info {
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 140%;
+                    color: rgb(160, 174, 192);
+                    margin-bottom: 36px;
+                    span {
+                        color: rgb(1, 181, 116);
+                    }
+                }
+                .userActivity__list {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+					gap: 0 55px;
+                    .userActivity__list_item {
+                        .top {
+                            display: flex;
+                            gap: 0 11px;
+                            margin-bottom: 6px;
+                            div {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                width: 25px;
+                                height: 25px;
+                                border-radius: 6px;
+                                box-shadow: 0px 3.5px 5.5px 0px
+                                    rgba(0, 0, 0, 0.02);
+                                background: rgb(0, 117, 255);
+                            }
+                            p {
+                                color: rgb(160, 174, 192);
+                                font-size: 14px;
+                                font-weight: 400;
+                                line-height: 150%;
+                            }
+                        }
+                        .amount {
+                            color: rgb(255, 255, 255);
+                            font-size: 18px;
+                            font-weight: 700;
+                            line-height: 140%;
+							margin-bottom: 7px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
