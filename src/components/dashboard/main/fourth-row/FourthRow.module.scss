@@ -1,0 +1,170 @@
+.root {
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1057px 519px;
+        gap: 0 24px;
+        .projects {
+            padding: 28px 21px;
+            border-radius: 20px;
+            backdrop-filter: blur(120px);
+            background: linear-gradient(
+                175.7deg,
+                rgba(6, 11, 40, 0.74) 11.859%,
+                rgba(10, 14, 35, 0.71) 114.371%
+            );
+            .projects__top {
+                margin-bottom: 28px;
+                display: flex;
+                justify-content: space-between;
+                .projects__title {
+                    color: rgb(255, 255, 255);
+                    font-size: 18px;
+                    font-weight: 700;
+                    line-height: 140%;
+                    margin-bottom: 6px;
+                }
+                .dots {
+                    cursor: pointer;
+                }
+                .info {
+                    color: rgb(160, 174, 192);
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 140%;
+                    display: flex;
+                    gap: 0 5px;
+                    align-items: center;
+                    span {
+                        font-weight: 700;
+                    }
+                }
+            }
+            .content {
+                .top__row {
+                    color: rgb(160, 174, 192);
+                    font-size: 11px;
+                    font-weight: 400;
+                    line-height: 150%;
+                    display: flex;
+                    font-weight: 700;
+
+                    justify-content: space-between;
+                    text-transform: uppercase;
+                    padding-bottom: 12px;
+                    border-bottom: 1px solid rgb(86, 87, 122);
+                    padding-right: 102px;
+                    .row__right {
+                        display: flex;
+                        gap: 0 164px;
+                    }
+                }
+                .projects__list {
+                    .row {
+                        padding: 19px 70px 19px 0px;
+                        display: flex;
+                        justify-content: space-between;
+                        border-bottom: 1px solid rgb(86, 87, 122);
+                        .row__left {
+                            div {
+                                display: flex;
+                                gap: 0 17px;
+                                align-items: center;
+                                p {
+                                    color: rgb(255, 255, 255);
+                                    font-size: 14px;
+                                    font-weight: 400;
+                                    line-height: 140%;
+                                }
+                            }
+                        }
+                        .row__right {
+                            display: flex;
+                            gap: 0 164px;
+                            img {
+                                border-radius: 50%;
+                            }
+                            .budget {
+                                color: rgb(255, 255, 255);
+                                font-size: 14px;
+                                font-weight: 700;
+                                line-height: 140%;
+                                width: 65px;
+                                text-align: left;
+                                padding-left: 16px;
+                            }
+                            div {
+                                p {
+                                    color: rgb(255, 255, 255);
+                                    font-size: 14px;
+                                    font-weight: 700;
+                                    line-height: 140%;
+                                    margin-bottom: 2.5px;
+                                }
+                                .progress {
+                                    width: 105px;
+                                    border-radius: 50px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .orders {
+            border-radius: 20px;
+            backdrop-filter: blur(120px);
+            background: linear-gradient(
+                175.7deg,
+                rgba(6, 11, 40, 0.74) 3.078%,
+                rgba(10, 14, 35, 0.71) 126.781%
+            );
+            padding: 28px 21px;
+            .orders__top {
+                margin-bottom: 32px;
+                h6 {
+                    color: rgb(255, 255, 255);
+                    font-size: 18px;
+                    font-weight: 700;
+                    line-height: 140%;
+                    margin-bottom: 6px;
+                }
+                p {
+                    color: rgb(160, 174, 192);
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 140%;
+                    display: flex;
+                    align-items: center;
+                    gap: 0 5px;
+                    span {
+                        font-weight: 700;
+                    }
+                }
+            }
+            .orders__list {
+                .orders__list_item {
+                    display: flex;
+                    gap: 0 26px;
+                    align-items: center;
+                    margin-bottom: 21px;
+                    .right {
+                        .title {
+                            color: rgb(255, 255, 255);
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 150%;
+                            margin-bottom: 3px;
+                        }
+                        .date {
+                            color: rgb(160, 174, 192);
+                            font-size: 12px;
+                            font-weight: 400;
+                            line-height: 150%;
+                            text-transform: uppercasea;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
