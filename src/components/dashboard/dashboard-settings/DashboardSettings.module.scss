@@ -1,0 +1,15 @@
+.root {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	width: 56px;
+	height: 56px;
+	background-color: #0075ff;
+	position: fixed;
+	right: 30px;
+	bottom: 30px;
+	z-index: 50;
+	cursor: pointer;
+
+}

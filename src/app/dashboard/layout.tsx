@@ -2,6 +2,7 @@ import { DashboardAside } from '@/components/dashboard/dashboard-aside/Dashboard
 import { DashboardHeader } from '@/components/dashboard/dashboard-header/DashboardHeader'
 import type { PropsWithChildren } from 'react'
 import styles from './Dashboard.module.scss'
+import { DashboardSetting } from '@/components/dashboard/dashboard-settings/DashboardSetting'
 
 export default function Layout({ children }: PropsWithChildren<unknown>) {
     return (
@@ -10,6 +11,7 @@ export default function Layout({ children }: PropsWithChildren<unknown>) {
                 <DashboardAside />
                 <main className={styles.main}>
                     <DashboardHeader />
+                    <DashboardSetting/>
                     {children}
                 </main>
             </div>

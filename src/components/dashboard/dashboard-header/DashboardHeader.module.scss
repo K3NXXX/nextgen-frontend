@@ -10,6 +10,9 @@
         .pages__top {
             margin-bottom: 6px;
             p {
+                display: flex;
+                align-items: center;
+                gap: 0 5px;
                 font-size: 12px;
                 font-weight: 400;
                 line-height: 100%;
@@ -35,6 +38,7 @@
             left: 10px;
         }
         input {
+            width: 210px;
             padding: 11px 14px 11px 38px;
             border: 0.5px solid rgba(226, 232, 240, 0.3);
             border-radius: 15px;

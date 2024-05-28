@@ -13,6 +13,9 @@
                 rgba(6, 11, 40, 0.74) 12.226%,
                 rgba(10, 14, 35, 0.71) 113.851%
             );
+            .chart {
+                background: linear-gradient(180.00deg, rgb(0, 117, 255),rgba(0, 117, 255, 0) 100%);
+            }
             :global {
                 .MuiChartsAxis-line {
                     display: none;
@@ -22,6 +25,7 @@
                 }
                 .MuiChartsGrid-line {
                     stroke: #56577a;
+                    stroke-dasharray: 5;
                 }
             }
 
@@ -78,6 +82,13 @@
                     }
                     .MuiBarElement-series-auto-generated-id-0 {
                         fill: white;
+                    }
+                    .MuiBarElement-root {
+                        rx: 5px; 
+                        ry: 5px; 
+                    }
+                    .MuiLineHighlightElement-root {
+                        fill: red;
                     }
                 }
             }

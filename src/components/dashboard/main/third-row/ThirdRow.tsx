@@ -1,12 +1,13 @@
 'use client'
 
 import { userActivity } from '@/lists/dashboard/main/users.activity.items'
+import { LinearProgress, createTheme } from '@mui/material'
 import { AxisConfig, LineChart } from '@mui/x-charts'
 import { BarChart } from '@mui/x-charts/BarChart'
 import styles from './ThirdRow.module.scss'
-import { LinearProgress } from '@mui/material'
 
 export function ThirdRow() {
+    
     return (
         <div className={styles.root}>
             <div className={styles.wrapper}>
@@ -18,8 +19,10 @@ export function ThirdRow() {
                         </p>
                     </div>
                     <LineChart
+                        className={styles.chart}
                         xAxis={[
                             {
+                              
                                 data: [
                                     'Jan',
                                     'Feb',
@@ -37,15 +40,22 @@ export function ThirdRow() {
                                 scaleType: 'band',
                             },
                         ]}
-                        yAxis={[{ data: [100, 200, 300, 400, 500, 600, 700] }]}
+                        yAxis={[{ 
+                            colorMap: {
+                                type: 'continuous',
+                                color: ['rgb(0, 117, 255)', 'rgba(0, 117, 255, 0.4)'],
+                            },
+                            data: [100, 200, 300, 400, 500, 600, 700] }]}
                         series={[
                             {
+
+                                showMark:false,
                                 data: [
-                                    0, 500, 300, 700, 100, 350, 480, 700, 435,
+                                    0, 500, 300, 700, 400, 350, 480, 700, 435,
                                     520, 230, 530,
                                 ],
                                 area: true,
-                                color: 'rgb(0, 117, 255)',
+                                // color: 'rgb(0, 117, 255)',
                             },
                             // {
                             //     data: [0, 300, 700, 300, 300, 320, 700, 430, 436, 500, 200, 550],
@@ -65,19 +75,19 @@ export function ThirdRow() {
                                 {
                                     scaleType: 'band',
                                     data: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-                                    categoryGapRatio: 0.8,
+                                    categoryGapRatio: 0.86,
                                 } as AxisConfig<'band'>,
                             ]}
                             series={[
                                 {
                                     data: [
-                                        254, 400, 560, 330, 400, 360, 140, 200,
-                                        950,
+                                        254, 300, 340, 410, 480, 210, 110, 160,
+                                        320,
                                     ],
                                 },
                             ]}
                             width={650}
-                            height={300}
+                            height={250}
                         />
                     </div>
                     <div className={styles.content}>
@@ -90,14 +100,17 @@ export function ThirdRow() {
                                 <div className={styles.userActivity__list_item}>
                                     <div className={styles.top}>
                                         <div>
-                                            <item.icon color='white' />
+                                            <item.icon color="white" />
                                         </div>
                                         <p>{item.label}</p>
                                     </div>
                                     <p className={styles.amount}>
                                         {item.amount}
                                     </p>
-									<LinearProgress variant="determinate" value={item.progress} />
+                                    <LinearProgress
+                                        variant="determinate"
+                                        value={item.progress}
+                                    />
                                 </div>
                             ))}
                         </ul>

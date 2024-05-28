@@ -3,17 +3,22 @@
 import { Heading } from '@/components/ui/dashboard/heading/Heading'
 import { Bell, Search, Settings, User } from 'lucide-react'
 import { usePathname } from 'next/navigation'
+import { AiFillHome } from "react-icons/ai";
 import styles from './DashboardHeader.module.scss'
+import { capitalizeFirstLetter } from '@/utils/capitalize-first-letter'
 
 export function DashboardHeader() {
-    const pathname = usePathname()
+    const pathname = usePathname();
+    const capitalizedPathname = capitalizeFirstLetter(pathname);
     return (
         <header className={styles.root}>
             <div className={styles.left__part}>
                 <div className={styles.pages}>
                     <div className={styles.pages__top}>
                         <p>
-                            Pages <span> {pathname}</span>
+                            <AiFillHome size={15}/>
+                            <span>/</span>
+                             <span> {capitalizedPathname}</span>
                         </p>
                     </div>
                     <Heading title="Dashboard" />
