@@ -1,6 +1,9 @@
 .root {
     border-radius: 20px;
     padding: 36px 5px;
+    height: 500px;
+    position: sticky;
+    top: 10px;
   
     .logo__wrapper {
         display: flex;
