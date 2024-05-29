@@ -1,7 +1,8 @@
 .root {
+    
     .wrapper {
         display: grid;
-        grid-template-columns: 920px 652px;
+        grid-template-columns: minmax(0, 1.75fr) minmax(0, 1.42fr);
         gap: 0 24px;
 
         .salesOverview {
@@ -13,11 +14,9 @@
                 rgba(6, 11, 40, 0.74) 12.226%,
                 rgba(10, 14, 35, 0.71) 113.851%
             );
-            .chart {
-                background: linear-gradient(180.00deg, rgb(0, 117, 255),rgba(0, 117, 255, 0) 100%);
-            }
+          
             :global {
-                .MuiChartsAxis-line {
+                .MuiChartsAxis-line, .MuiChartsAxis-tick {
                     display: none;
                 }
                 .MuiChartsAxis-tickLabel {
@@ -26,6 +25,10 @@
                 .MuiChartsGrid-line {
                     stroke: #56577a;
                     stroke-dasharray: 5;
+                }
+                .css-l0h214-MuiResponsiveChart-container {
+                    max-width: 884px;
+                    height: 370px;
                 }
             }
 
@@ -84,11 +87,15 @@
                         fill: white;
                     }
                     .MuiBarElement-root {
-                        rx: 5px; 
-                        ry: 5px; 
+                        rx: 5px;
+                        ry: 5px;
                     }
                     .MuiLineHighlightElement-root {
                         fill: red;
+                    }
+                    .css-1ojnjh8-MuiResponsiveChart-container {
+                        // width: 650px;
+                        // height: 250px;
                     }
                 }
             }
@@ -113,7 +120,7 @@
                 .userActivity__list {
                     display: grid;
                     grid-template-columns: repeat(4, 1fr);
-					gap: 0 55px;
+                    gap: 0 55px;
                     .userActivity__list_item {
                         .top {
                             display: flex;
@@ -142,7 +149,7 @@
                             font-size: 18px;
                             font-weight: 700;
                             line-height: 140%;
-							margin-bottom: 7px;
+                            margin-bottom: 7px;
                         }
                     }
                 }

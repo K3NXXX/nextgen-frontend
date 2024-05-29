@@ -4,6 +4,9 @@
     height: 500px;
     position: sticky;
     top: 10px;
+    @media (max-width:1440px) {
+        display: none;
+    }    
   
     .logo__wrapper {
         display: flex;

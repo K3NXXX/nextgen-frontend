@@ -4,6 +4,8 @@ import { MoveRight } from 'lucide-react'
 import { IoIosHappy } from 'react-icons/io'
 import { RxDotsHorizontal } from 'react-icons/rx'
 import styles from './SecondRow.module.scss'
+import Image from 'next/image'
+import satisfactionProgress from "../../../../../public/dashboard-page/main/satisfaction-progress.png"
 
 export function SecondRow() {
     return (
@@ -25,13 +27,7 @@ export function SecondRow() {
                 <p className={styles.allProjects}>From all projects</p>
                 <div className={styles.chart}>
                     <div className={styles.chart__wrapper}>
-                        <CircularProgress
-                            className={styles.progress}
-                            variant="determinate"
-                            value={50}
-                            size={220}
-                            color="inherit"
-                        />
+                        <Image className={styles.progress} src={satisfactionProgress} alt='satisfaction progress'/>
                         <div>
                             <IoIosHappy size={30} color="white" />
                         </div>

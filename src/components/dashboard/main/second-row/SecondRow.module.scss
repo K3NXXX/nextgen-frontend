@@ -1,7 +1,8 @@
 .root {
     display: grid;
-    grid-template-columns: 652px 350px 536px;
-    gap: 0 29px;
+    grid-template-columns: minmax(0, 2.65fr) minmax(0, 1.42fr) minmax(0, 2.18fr);
+    gap: 29px 29px;
+    
     .ai__wrapper {
         border-radius: 20px;
         background: url('../../../../../public/dashboard-page/main/mushroom-bg.png');
@@ -9,6 +10,9 @@
         background-repeat: no-repeat;
         background-size: cover;
         padding: 32px 27px;
+        @media (max-width: 1800px) {
+            grid-column: span 3;
+        }
         .welcomeBack {
             color: rgb(160, 174, 192);
             font-size: 14px;
@@ -52,6 +56,9 @@
             rgba(17, 25, 64, 0.49) 76.646%
         );
         padding: 26px;
+        @media (max-width: 914px) {
+            grid-column: span 3;
+        }
         .rate {
             color: rgb(255, 255, 255);
             font-size: 18px;
@@ -71,14 +78,17 @@
             .chart__wrapper {
                 position: relative;
                 border-radius: 35px;
+                margin: 0 auto;
+                text-align: center;
                 color: rgb(0, 117, 255);
                 div {
                     position: absolute;
                     display: flex;
+                    top: -40px;
+                    left: 50%;
+                    transform: translate(-40%, -50%);
                     justify-content: center;
                     align-items: center;
-                    top: -65px;
-                    left: 127px;
                     z-index: 15;
                     background: rgb(0, 117, 255);
                     border-radius: 50%;
@@ -88,12 +98,10 @@
             }
             .progress {
                 z-index: 5;
-                top: -110px;
-                left: 40px;
+                top: 50%;
+                left: 50%;
                 position: absolute;
-                svg {
-                    transform: rotate(-90deg);
-                }
+                transform: translate(-50%, -50%);
             }
             .chart__stats {
                 position: relative;
@@ -102,7 +110,7 @@
                 border-radius: 20px;
                 background: linear-gradient(
                     175.7deg,
-                    rgba(28, 50, 177, 0.74) 24.782%,
+                    rgba(6, 11, 40, 0.74) 24.782%,
                     rgba(10, 14, 35, 0.71) 96.107%
                 );
                 padding: 25px 25px 25px 39px;
@@ -142,10 +150,17 @@
             rgba(6, 11, 40, 0.74) 7.898%,
             rgba(14, 21, 58, 0.71) 119.968%
         );
+        @media (max-width: 1800px) {
+            grid-column: span 2;
+        }
+        @media (max-width: 914px) {
+            grid-column: span 3;
+        }
         .referral__top {
             display: flex;
             justify-content: space-between;
             margin-bottom: 41px;
+          
             p {
                 color: rgb(255, 255, 255);
                 font-size: 18px;
@@ -166,6 +181,11 @@
         .content {
             display: flex;
             justify-content: space-between;
+            @media (max-width: 540px) {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px 0;
+            }
             .left {
                 display: flex;
                 flex-direction: column;
@@ -203,7 +223,7 @@
                         position: absolute;
                         top: 55px;
                         left: 0;
-                        right: 0;       
+                        right: 0;
                         display: flex;
                         flex-direction: column;
                         align-items: center;

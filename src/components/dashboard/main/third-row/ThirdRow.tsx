@@ -1,13 +1,13 @@
 'use client'
 
 import { userActivity } from '@/lists/dashboard/main/users.activity.items'
-import { LinearProgress, createTheme } from '@mui/material'
+import { LinearProgress } from '@mui/material'
 import { AxisConfig, LineChart } from '@mui/x-charts'
 import { BarChart } from '@mui/x-charts/BarChart'
 import styles from './ThirdRow.module.scss'
+import { Colorswitch } from './abc'
 
 export function ThirdRow() {
-    
     return (
         <div className={styles.root}>
             <div className={styles.wrapper}>
@@ -20,9 +20,21 @@ export function ThirdRow() {
                     </div>
                     <LineChart
                         className={styles.chart}
+                        sx={{
+                            '.MuiAreaElement-root': {
+                                fill: 'url(#custom_gradient_1)',
+                            },
+                            ".css-13vdo2f-MuiLineElement-root": {
+                                strokeWidth: "4px",
+                                
+                            },
+                            ".css-xglyfy-MuiLineElement-root": { //трабл в тому
+                                strokeWidth: "4px",
+                                fill: 'url(#custom_gradient_2)',
+                            }
+                        }}
                         xAxis={[
                             {
-                              
                                 data: [
                                     'Jan',
                                     'Feb',
@@ -40,33 +52,36 @@ export function ThirdRow() {
                                 scaleType: 'band',
                             },
                         ]}
-                        yAxis={[{ 
-                            colorMap: {
-                                type: 'continuous',
-                                color: ['rgb(0, 117, 255)', 'rgba(0, 117, 255, 0.4)'],
+                        yAxis={[
+                            {
+                         
+                                data: [100, 200, 300, 400, 500, 600, 680],
                             },
-                            data: [100, 200, 300, 400, 500, 600, 700] }]}
+                        ]}
                         series={[
                             {
-
-                                showMark:false,
+                                showMark: false,
                                 data: [
-                                    0, 500, 300, 700, 400, 350, 480, 700, 435,
-                                    520, 230, 530,
+                                    0, 500, 300, 680, 400, 450, 530, 680, 505,
+                                    600, 300, 530,
                                 ],
                                 area: true,
-                                // color: 'rgb(0, 117, 255)',
+                                color:"#18adff"
                             },
-                            // {
-                            //     data: [0, 300, 700, 300, 300, 320, 700, 430, 436, 500, 200, 550],
-                            // 	area: true,
-                            // 	color: 'rgb(50, 160, 255)'
-                            // },
+                            {
+                                data: [
+                                    0, 300, 650, 300, 350, 400, 500, 550, 680,
+                                    500, 200, 550,
+                                ],
+                                area: true,
+                                showMark: false,
+                                color: '#2cd9ff',
+                            },
                         ]}
-                        width={884}
-                        height={370}
                         grid={{ horizontal: true }}
-                    />
+                    >
+                        <Colorswitch />
+                    </LineChart>
                 </div>
                 <div className={styles.usersActivity}>
                     <div className={styles.chart}>
