@@ -1,5 +1,5 @@
 
-export const Colorswitch = () => {
+export const LinearChartGradient = () => {
     return (
         <>
             <defs>

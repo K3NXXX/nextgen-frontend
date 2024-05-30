@@ -10,7 +10,7 @@ export function Dashboard() {
 			<GeneralStatistics/>
 			<SecondRow/>
 			<ThirdRow/>
-			{/* <FourthRow/> */}
+			<FourthRow/>
 		</section>
 	)
 }

@@ -1,10 +1,26 @@
 export const salesData = {
-    width: 884,
-    height: 370,
     grid: { horizontal: true },
+    series: [
+        {
+            showMark: false,
+            data: [0, 500, 300, 680, 400, 450, 530, 680, 505, 600, 300, 530],
+            area: true,
+            color: '#18adff',
+        },
+        {
+            data: [0, 300, 650, 300, 350, 400, 500, 550, 680, 500, 200, 550],
+            area: true,
+            showMark: false,
+            color: '#2cd9ff',
+        },
+    ],
+    yAxis: [
+        {
+            data: [100, 200, 300, 400, 500, 600, 680],
+        },
+    ],
     xAxis: [
         {
-			id: 'x-axis-1',
             data: [
                 'Jan',
                 'Feb',
@@ -22,30 +38,16 @@ export const salesData = {
             scaleType: 'band',
         },
     ],
-    yAxis: [
-        {
-            colorMap: {
-                type: 'continuous',
-                color: ['rgb(0, 117, 255)', 'rgba(0, 117, 255, 0.4)'],
-            },
-            data: [100, 200, 300, 400, 500, 600, 700],
+    sx: {
+        '.MuiAreaElement-root': {
+            fill: 'url(#custom_gradient_1)',
         },
-    ],
-    series: [
-        {
-            showMark: false,
-            data: [0, 500, 300, 700, 400, 350, 540, 700, 435, 520, 230, 530],
-            area: true,
+        '.css-13vdo2f-MuiLineElement-root': {
+            strokeWidth: '4px',
         },
-    ],
-
-    // {
-    //     data: [
-    //         0, 300, 700, 300, 300, 320, 400, 460, 550,
-    //         500, 200, 550,
-    //     ],
-    //     area: true,
-    //     showMark: false,
-    //     color: 'rgb(50, 160, 255)',
-    // },
+        '.css-xglyfy-MuiLineElement-root': {
+            strokeWidth: '4px',
+            fill: 'url(#custom_gradient_2)',
+        },
+    },
 }

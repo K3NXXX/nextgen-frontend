@@ -1,12 +1,15 @@
 .root {
-    
     .wrapper {
         display: grid;
         grid-template-columns: minmax(0, 1.75fr) minmax(0, 1.42fr);
         gap: 0 24px;
+        @media (max-width:1140px) {
+            grid-template-columns: 1fr;
+            gap: 29px 0;
+        }
 
         .salesOverview {
-            padding: 28px 21px;
+            padding: 28px 0px 28px 21px;
             border-radius: 20px;
             backdrop-filter: blur(120px);
             background: linear-gradient(
@@ -14,9 +17,10 @@
                 rgba(6, 11, 40, 0.74) 12.226%,
                 rgba(10, 14, 35, 0.71) 113.851%
             );
-          
+
             :global {
-                .MuiChartsAxis-line, .MuiChartsAxis-tick {
+                .MuiChartsAxis-line,
+                .MuiChartsAxis-tick {
                     display: none;
                 }
                 .MuiChartsAxis-tickLabel {
@@ -29,6 +33,9 @@
                 .css-l0h214-MuiResponsiveChart-container {
                     max-width: 884px;
                     height: 370px;
+                    @media (max-width:1140px) {
+                        max-width: 1500px;
+                    }
                 }
             }
 
@@ -64,6 +71,8 @@
                 rgba(4, 12, 48, 0.5) 104.755%
             );
             .chart {
+                display: flex;
+                justify-content: center;
                 margin-bottom: 24px;
                 border-radius: 20px;
                 backdrop-filter: blur(120px);
@@ -93,10 +102,10 @@
                     .MuiLineHighlightElement-root {
                         fill: red;
                     }
-                    .css-1ojnjh8-MuiResponsiveChart-container {
-                        // width: 650px;
-                        // height: 250px;
+                    .css-1khsfb4-MuiResponsiveChart-container {
+                        max-width: 800px !important;
                     }
+                    
                 }
             }
             .content {
@@ -121,6 +130,10 @@
                     display: grid;
                     grid-template-columns: repeat(4, 1fr);
                     gap: 0 55px;
+                    @media (max-width:530px) {
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 20px 40px;
+                    }
                     .userActivity__list_item {
                         .top {
                             display: flex;
