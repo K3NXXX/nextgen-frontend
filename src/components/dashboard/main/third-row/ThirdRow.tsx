@@ -3,7 +3,7 @@
 import { salesData } from '@/data/charts.data/sales.data'
 import { userActivity } from '@/lists/dashboard/main/users.activity.items'
 import { LinearProgress } from '@mui/material'
-import { AxisConfig, LineChart } from '@mui/x-charts'
+import { LineChart } from '@mui/x-charts'
 import { BarChart } from '@mui/x-charts/BarChart'
 import { LinearChartGradient } from './LinearChartGradient'
 import styles from './ThirdRow.module.scss'

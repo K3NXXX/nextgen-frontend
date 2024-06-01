@@ -50,4 +50,5 @@ export const salesData = {
             fill: 'url(#custom_gradient_2)',
         },
     },
+    height: 370,
 }
