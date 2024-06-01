@@ -16,12 +16,14 @@
                 rgba(6, 11, 40, 0.74) 11.859%,
                 rgba(10, 14, 35, 0.71) 114.371%
             );
-          
-          
+            overflow-x: auto;
+            white-space: nowrap;
+
             .projects__top {
                 margin-bottom: 28px;
                 display: flex;
                 justify-content: space-between;
+
                 .projects__title {
                     color: rgb(255, 255, 255);
                     font-size: 18px;
@@ -47,41 +49,46 @@
             }
             .content {
                 overflow-x: auto;
+                white-space: nowrap;
                 .top__row {
-                    @media (max-width: 950px) {
-                        min-width: 872px;
-                     }
                     color: rgb(160, 174, 192);
                     font-size: 11px;
-                    font-weight: 400;
                     line-height: 150%;
                     display: flex;
                     font-weight: 700;
-
                     justify-content: space-between;
                     text-transform: uppercase;
                     padding-bottom: 12px;
                     border-bottom: 1px solid rgb(86, 87, 122);
                     padding-right: 102px;
+                    white-space: nowrap;
+                    @media (max-width: 800px) {
+                        display: grid;
+                        grid-template-columns: 265px 1fr;
+                        border-bottom: none;
+                    }
                     .row__right {
                         display: flex;
                         gap: 0 164px;
+                        @media (max-width: 930px) {
+                            gap: 0 100px;
+                        }
+                    }
+                    .row__left {
+                        padding-right: 100px;
                     }
                 }
                 .projects__list {
-                    display: none;
-                    @media (max-width: 1100px) {
-                        overflow-x: auto; /* Додає горизонтальний скролл */
-                        white-space: nowrap;
-                    }
                     .row {
-                            @media (max-width: 950px) {
-                            min-width: 872px;
-                            }
                         padding: 19px 70px 19px 0px;
                         display: flex;
                         justify-content: space-between;
                         border-bottom: 1px solid rgb(86, 87, 122);
+                        @media (max-width: 800px) {
+                            display: grid;
+                            grid-template-columns: 280px 1fr;
+                            border-bottom: none;
+                        }
                         .row__left {
                             div {
                                 display: flex;
@@ -98,6 +105,9 @@
                         .row__right {
                             display: flex;
                             gap: 0 164px;
+                            @media (max-width: 930px) {
+                                gap: 0 100px;
+                            }
                             img {
                                 border-radius: 50%;
                             }
@@ -119,7 +129,7 @@
                                     margin-bottom: 2.5px;
                                 }
                                 .progress {
-                                    width: 105px;
+                                    width: 102px;
                                     border-radius: 50px;
                                 }
                             }
