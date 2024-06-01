@@ -5,7 +5,7 @@ import { IoIosHappy } from 'react-icons/io'
 import { RxDotsHorizontal } from 'react-icons/rx'
 import styles from './SecondRow.module.scss'
 import Image from 'next/image'
-import satisfactionProgress from "../../../../../public/dashboard-page/main/satisfaction-progress.png"
+import satisfactionProgress from "../../../../../public/dashboard-page/main/satisfaction-progress.webp"
 
 export function SecondRow() {
     return (
