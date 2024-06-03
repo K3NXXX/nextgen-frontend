@@ -6,27 +6,34 @@ import {
     dashboardMenuMainPages,
 } from '@/lists/dashboard/dashboard.menu.items'
 import { setSideMenuOpened } from '@/redux/slices/globalSlice'
+import { RootState } from '@/redux/store'
 import { X } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useDispatch } from 'react-redux'
-import { useMediaQuery } from 'usehooks-ts'
+import { useDispatch, useSelector } from 'react-redux'
 import logoLine from '../../../../public/dashboard-page/Vector 6.png'
 import styles from './DashboardAside.module.scss'
-import { DashboardAsideMobile } from './DashboardAsideMobile'
+import { useRef } from 'react'
+import { useOnClickOutside } from 'usehooks-ts'
 
-export function DashboardAside() {
+export function DashboardAsideMobile() {
+    const asideMenuRef = useRef(null)
     const pathname = usePathname()
     const dispatch = useDispatch()
-    const isMobile = useMediaQuery('(max-width: 1440px)')
+    const { isSideMenuOpened } = useSelector(
+        (state: RootState) => state.globalSlice
+    )
+    const handleClickOutside = () => {
+        dispatch(setSideMenuOpened(false))
+      }
+
+      useOnClickOutside(asideMenuRef, handleClickOutside)
 
     return (
         <>
-            {isMobile ? (
-                <DashboardAsideMobile />
-            ) : (
-                <aside className={styles.root}>
+            {isSideMenuOpened && (
+                <aside ref={asideMenuRef} className={styles.root}>
                     <X
                         onClick={() => dispatch(setSideMenuOpened(false))}
                         color="white"
