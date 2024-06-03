@@ -1,6 +1,6 @@
 .root {
     padding-top: 28px;
-    .authors {
+    .projects {
         padding: 28px 21px;
         border-radius: 20px;
         background: linear-gradient(
@@ -10,12 +10,12 @@
         );
         overflow-x: auto;
 
-        .authors__top {
+        .projects__top {
             margin-bottom: 28px;
             display: flex;
             justify-content: space-between;
 
-            .authors__title {
+            .projects__title {
                 color: rgb(255, 255, 255);
                 font-size: 18px;
                 font-weight: 700;
@@ -63,8 +63,7 @@
                     align-items: center;
                     text-align: center;
                     p {
-                            width: 100px;
-                          
+                        width: 100px;
                     }
                     @media (max-width: 1600px) {
                         gap: 0 100px;
@@ -74,9 +73,9 @@
                     padding-right: 100px;
                 }
             }
-            .authors__list {
+            .projects__list {
                 .row {
-                    padding: 10px 70px 10px 0px;
+                    padding: 15px 70px 15px 0px;
                     display: flex;
                     justify-content: space-between;
                     border-bottom: 1px solid rgb(86, 87, 122);
@@ -105,13 +104,6 @@
                                     font-size: 14px;
                                     line-height: 140%;
                                 }
-                                .email {
-                                    color: rgb(160, 174, 192);
-                                    font-size: 14px;
-                                    font-weight: 400;
-                                    line-height: 150%;
-                                    text-align: left;
-                                }
                             }
                         }
                     }
@@ -123,7 +115,6 @@
                         text-align: center;
                         p {
                             width: 100px;
-                          
                         }
                         @media (max-width: 1600px) {
                             gap: 0 100px;
@@ -131,7 +122,7 @@
                         img {
                             border-radius: 50%;
                         }
-                        .function {
+                        .budget {
                             color: rgb(255, 255, 255);
                             font-size: 14px;
                             font-weight: 700;
@@ -140,26 +131,23 @@
                         .status {
                             color: rgb(255, 255, 255);
                             font-size: 14px;
-                            font-weight: 700;
-                            line-height: 140%;
-                            border-radius: 8px;
-                            border: 0.0625rem solid rgb(1, 181, 116);
-                            background: rgb(1, 181, 116);
-                            border-radius: 0.5rem;
-                        }
-                        .employed {
-                            color: rgb(255, 255, 255);
-                            font-size: 14px;
-                            font-weight: 700;
-                            line-height: 140%;
-                            border-radius: 8px;
-                        }
-                        .edit {
-                            cursor: pointer;
-                            color: rgb(160, 174, 192);
-                            font-size: 14px;
                             font-weight: 400;
-                            line-height: 150%;
+                            line-height: 140%;
+                            font-weight: 700;
+                        }
+                        .completion__wrapper {
+                            width: 100px;
+                            display: flex;
+                            flex-direction: column;
+                            p {
+                                text-align: start;
+                            }
+                        }
+                        .dots__wrapper {
+							width: 100px;
+                            .dots {
+                                cursor: pointer;
+                            }
                         }
                         div {
                             p {

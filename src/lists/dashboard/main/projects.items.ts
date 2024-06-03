@@ -10,6 +10,7 @@ interface IProjects {
 	progress: number
 	members: StaticImageData
 	icon: IconType
+	status: string
 }
 
 export const projects: IProjects[] = [
@@ -20,6 +21,7 @@ export const projects: IProjects[] = [
 		members: person,
 		budget: "$14,000",
 		progress: 60,
+		status: "Working"
 	},
 	{
 		id : 2,
@@ -28,6 +30,7 @@ export const projects: IProjects[] = [
 		members: person,
 		budget: "$3,000",
 		progress: 10,
+		status: "Canceled"
 	},
 	{
 		id : 3,
@@ -36,6 +39,7 @@ export const projects: IProjects[] = [
 		members: person,
 		budget: "Not set",
 		progress: 100,
+		status: "Working"
 	},
 	{
 		id : 4,
@@ -44,6 +48,7 @@ export const projects: IProjects[] = [
 		members: person,
 		budget: "$32,000",
 		progress: 100,
+		status: "Done"
 	},
 	{
 		id : 5,
@@ -52,6 +57,7 @@ export const projects: IProjects[] = [
 		members: person,
 		budget: "$400",
 		progress: 25,
+		status: "Canceled"
 	},
 	{
 		id : 6,
@@ -60,5 +66,6 @@ export const projects: IProjects[] = [
 		members: person,
 		budget: "$7,600",
 		progress: 40,
+		status: "Done"
 	},
 ]
