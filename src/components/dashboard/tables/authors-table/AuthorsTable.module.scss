@@ -1,0 +1,181 @@
+.root {
+    padding-top: 28px;
+    .authors {
+        padding: 28px 21px;
+        border-radius: 20px;
+        background: linear-gradient(
+            175.7deg,
+            rgba(6, 11, 40, 0.74) 11.859%,
+            rgba(10, 14, 35, 0.71) 114.371%
+        );
+        overflow-x: auto;
+
+        .authors__top {
+            margin-bottom: 28px;
+            display: flex;
+            justify-content: space-between;
+
+            .authors__title {
+                color: rgb(255, 255, 255);
+                font-size: 18px;
+                font-weight: 700;
+                line-height: 140%;
+                margin-bottom: 6px;
+            }
+            .dots {
+                cursor: pointer;
+            }
+            .info {
+                color: rgb(160, 174, 192);
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 140%;
+                display: flex;
+                gap: 0 5px;
+                align-items: center;
+                span {
+                    font-weight: 700;
+                }
+            }
+        }
+        .content {
+            overflow-x: auto;
+            .top__row {
+                color: rgb(160, 174, 192);
+                font-size: 11px;
+                line-height: 150%;
+                display: flex;
+                font-weight: 700;
+                justify-content: space-between;
+                text-transform: uppercase;
+                padding-bottom: 12px;
+                border-bottom: 1px solid rgb(86, 87, 122);
+                padding-right: 70px;
+                @media (max-width: 1100px) {
+                    display: grid;
+                    grid-template-columns: 300px 1fr;
+                    border-bottom: none;
+                    max-width: 100px;
+                }
+                .row__right {
+                    display: flex;
+                    gap: 0 164px;
+                    align-items: center;
+                    text-align: center;
+                    p {
+                            width: 100px;
+                          
+                    }
+                    @media (max-width: 1600px) {
+                        gap: 0 100px;
+                    }
+                }
+                .row__left {
+                    padding-right: 100px;
+                }
+            }
+            .authors__list {
+                .row {
+                    padding: 10px 70px 10px 0px;
+                    display: flex;
+                    justify-content: space-between;
+                    border-bottom: 1px solid rgb(86, 87, 122);
+                    @media (max-width: 1100px) {
+                        display: grid;
+                        grid-template-columns: 300px 1fr;
+                        border-bottom: none;
+                        max-width: 100px;
+                    }
+                    .row__left {
+                        img {
+                            width: 40px;
+                            height: 40px;
+                        }
+                        div {
+                            display: flex;
+                            gap: 0 17px;
+                            align-items: center;
+                            .info {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: start;
+                                .name {
+                                    font-weight: 700;
+                                    color: rgb(255, 255, 255);
+                                    font-size: 14px;
+                                    line-height: 140%;
+                                }
+                                .email {
+                                    color: rgb(160, 174, 192);
+                                    font-size: 14px;
+                                    font-weight: 400;
+                                    line-height: 150%;
+                                    text-align: left;
+                                }
+                            }
+                        }
+                    }
+                    .row__right {
+                        display: flex;
+                        gap: 0 164px;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                        p {
+                            width: 100px;
+                          
+                        }
+                        @media (max-width: 1600px) {
+                            gap: 0 100px;
+                        }
+                        img {
+                            border-radius: 50%;
+                        }
+                        .function {
+                            color: rgb(255, 255, 255);
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 140%;
+                        }
+                        .status {
+                            color: rgb(255, 255, 255);
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 140%;
+                            border-radius: 8px;
+                            border: 0.0625rem solid rgb(1, 181, 116);
+                            background: rgb(1, 181, 116);
+                            border-radius: 0.5rem;
+                        }
+                        .employed {
+                            color: rgb(255, 255, 255);
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 140%;
+                            border-radius: 8px;
+                        }
+                        .edit {
+                            color: rgb(160, 174, 192);
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 150%;
+                        }
+                        div {
+                            p {
+                                color: rgb(255, 255, 255);
+                                font-size: 14px;
+                                font-weight: 700;
+                                line-height: 140%;
+                                margin-bottom: 2.5px;
+                            }
+                            .progress {
+                                width: 102px;
+                                border-radius: 50px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
