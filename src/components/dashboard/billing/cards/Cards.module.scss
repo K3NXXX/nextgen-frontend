@@ -1,15 +1,31 @@
 .root {
     display: grid;
-    grid-template-columns: 1055px 1fr;
+    grid-template-columns: 2fr 1.02fr;
     gap: 0 29px;
+    @media (max-width:950px) {
+        grid-template-columns:  1fr;
+        gap: 30px 0;
+       
+    }
+  
     .cards {
         display: flex;
         flex-direction: column;
         gap: 29px 0;
         .cards__top {
             display: grid;
-            justify-content: space-between;
             grid-template-columns: 1fr 1fr;
+            @media (max-width:1700px) {
+                grid-template-columns:  1fr;
+                gap: 30px 0;
+            }
+            @media (max-width:480px) {
+                img {
+                    width: 350px;
+                    height: 200px;
+                }
+               
+            }
         }
         .payment {
             padding: 22px 24px 26px;
@@ -22,6 +38,7 @@
             .payment__top {
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
                 margin-bottom: 24px;
                 .title {
                     color: rgb(255, 255, 255);
@@ -48,6 +65,10 @@
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 gap: 0 28px;
+                @media (max-width:630px) {
+                    grid-template-columns: 1fr;
+                    gap: 30px 0;
+                }
                 .card__info {
                     border: 2px solid rgb(74, 85, 104);
                     display: flex;

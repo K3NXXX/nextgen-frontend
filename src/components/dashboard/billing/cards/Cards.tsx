@@ -1,11 +1,11 @@
 import card1 from '@/../public/dashboard-page/billing/card1.png'
-import card2 from '@/../public/dashboard-page/billing/card2.png'
 import mastercard from '@/../public/dashboard-page/billing/mastercard.svg'
 import visa from '@/../public/dashboard-page/billing/visa.svg'
 import Image from 'next/image'
 import { FaFileAlt } from 'react-icons/fa'
 import { HiPencil } from 'react-icons/hi2'
 import styles from './Cards.module.scss'
+
 
 export function Cards() {
     return (
@@ -68,12 +68,12 @@ export function Cards() {
                         <div className={styles.right}>
                             <p className={styles.amount}>$250</p>
                             <div className={styles.pdf}>
-                                <FaFileAlt color='white' />
+                                <FaFileAlt color="white" />
                                 <span>PDF</span>
                             </div>
                         </div>
                     </div>
-					<div className={styles.row}>
+                    <div className={styles.row}>
                         <div className={styles.left}>
                             <p>March, 01, 2024</p>
                             <span>#MS-415646</span>
@@ -81,12 +81,12 @@ export function Cards() {
                         <div className={styles.right}>
                             <p className={styles.amount}>$250</p>
                             <div className={styles.pdf}>
-                                <FaFileAlt color='white' />
+                                <FaFileAlt color="white" />
                                 <span>PDF</span>
                             </div>
                         </div>
                     </div>
-					<div className={styles.row}>
+                    <div className={styles.row}>
                         <div className={styles.left}>
                             <p>March, 01, 2024</p>
                             <span>#MS-415646</span>
@@ -94,12 +94,12 @@ export function Cards() {
                         <div className={styles.right}>
                             <p className={styles.amount}>$250</p>
                             <div className={styles.pdf}>
-                                <FaFileAlt color='white' />
+                                <FaFileAlt color="white" />
                                 <span>PDF</span>
                             </div>
                         </div>
                     </div>
-					<div className={styles.row}>
+                    <div className={styles.row}>
                         <div className={styles.left}>
                             <p>March, 01, 2024</p>
                             <span>#MS-415646</span>
@@ -107,12 +107,12 @@ export function Cards() {
                         <div className={styles.right}>
                             <p className={styles.amount}>$250</p>
                             <div className={styles.pdf}>
-                                <FaFileAlt color='white' />
+                                <FaFileAlt color="white" />
                                 <span>PDF</span>
                             </div>
                         </div>
                     </div>
-					<div className={styles.row}>
+                    <div className={styles.row}>
                         <div className={styles.left}>
                             <p>March, 01, 2024</p>
                             <span>#MS-415646</span>
@@ -120,7 +120,7 @@ export function Cards() {
                         <div className={styles.right}>
                             <p className={styles.amount}>$250</p>
                             <div className={styles.pdf}>
-                                <FaFileAlt color='white' />
+                                <FaFileAlt color="white" />
                                 <span>PDF</span>
                             </div>
                         </div>
