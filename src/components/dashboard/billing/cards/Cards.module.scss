@@ -1,0 +1,165 @@
+.root {
+    display: grid;
+    grid-template-columns: 1055px 1fr;
+    gap: 0 29px;
+    .cards {
+        display: flex;
+        flex-direction: column;
+        gap: 29px 0;
+        .cards__top {
+            display: grid;
+            justify-content: space-between;
+            grid-template-columns: 1fr 1fr;
+        }
+        .payment {
+            padding: 22px 24px 26px;
+            border-radius: 20px;
+            background: linear-gradient(
+                128.44deg,
+                rgba(6, 11, 40, 0.94) 27.178%,
+                rgba(10, 14, 35, 0.49) 89.94%
+            );
+            .payment__top {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 24px;
+                .title {
+                    color: rgb(255, 255, 255);
+                    font-size: 18px;
+                    font-weight: 700;
+                    line-height: 140%;
+                }
+                .addCard {
+                    color: rgb(255, 255, 255);
+                    font-size: 12px;
+                    font-weight: 700;
+                    line-height: 150%;
+                    border-radius: 12px;
+                    background: rgb(0, 117, 255);
+                    padding: 10px 20px;
+                    transition: 0.3s ease;
+                    text-transform: uppercase;
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
+            }
+            .payment__content {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0 28px;
+                .card__info {
+                    border: 2px solid rgb(74, 85, 104);
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-radius: 20px;
+                    padding: 20px;
+                    background: linear-gradient(
+                        69.61deg,
+                        rgba(255, 255, 255, 0) -43.757%,
+                        rgba(255, 255, 255, 0.04) 104.082%
+                    );
+                    .left {
+                        display: flex;
+                        gap: 0 15px;
+                        align-items: center;
+                        p {
+                            color: rgb(255, 255, 255);
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 140%;
+                        }
+                    }
+                    .right {
+                        .edit {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .invoices {
+        padding: 28px 24px 47px;
+        border-radius: 20px;
+        background: linear-gradient(
+            128.44deg,
+            rgba(6, 11, 40, 0.94) 22.957%,
+            rgba(10, 14, 35, 0.49) 82.714%
+        );
+        .invoices__top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 23px;
+            .title {
+                color: rgb(255, 255, 255);
+                font-size: 18px;
+                font-weight: 700;
+                line-height: 140%;
+            }
+            .viewAll {
+                color: rgb(255, 255, 255);
+                font-size: 12px;
+                font-weight: 700;
+                line-height: 150%;
+                border-radius: 12px;
+                background: rgb(0, 117, 255);
+                text-transform: uppercase;
+                padding: 10px 40px;
+                transition: 0.3s ease;
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+        .invoices__content {
+            display: flex;
+            flex-direction: column;
+            gap: 25px 0;
+            .row {
+                display: flex;
+                justify-content: space-between;
+                .left {
+                    p {
+                        color: rgb(255, 255, 255);
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 140%;
+                        margin-bottom: 4px;
+                    }
+                    span {
+                        color: rgb(160, 174, 192);
+                        font-size: 12px;
+                        font-weight: 400;
+                        line-height: 150%;
+                    }
+                }
+                .right {
+                    display: flex;
+					align-items: center;
+                    gap: 0 16px;
+                    p {
+                        color: rgb(160, 174, 192);
+                        font-size: 12px;
+                        font-weight: 400;
+                        line-height: 150%;
+                    }
+                    .pdf {
+						cursor: pointer;
+						display: flex;
+						align-items: center;
+						gap: 0 3px;
+                        span {
+                            color: rgb(160, 174, 192);
+                            font-size: 12px;
+                            font-weight: 400;
+                            line-height: 150%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

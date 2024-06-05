@@ -1,0 +1,170 @@
+.root {
+    display: grid;
+    grid-template-columns: 900px 685px;
+    gap: 0 29px;
+    .billing__info {
+        padding: 28px 22px 22px;
+        border-radius: 20px;
+        background: linear-gradient(
+            128.44deg,
+            rgba(6, 11, 40, 0.94) 23.494%,
+            rgba(10, 14, 35, 0.49) 83.633%
+        );
+        .title {
+            color: rgb(255, 255, 255);
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 140%;
+            margin-bottom: 18px;
+        }
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 30px 0;
+        }
+        .info__block {
+            border-radius: 20px;
+            padding: 25px;
+            background: linear-gradient(
+                128.44deg,
+                rgba(24, 29, 60, 0.94) 27.359%,
+                rgba(10, 14, 35, 0.49) 90.248%
+            );
+            .info__block_top {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 5px;
+                .name {
+                    color: rgb(255, 255, 255);
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 140%;
+                }
+                .options {
+                    display: flex;
+                    align-items: center;
+                    gap: 0 16px;
+                    .delete,
+                    .edit {
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        gap: 0 7px;
+                    }
+                    .delete p {
+                        color: rgb(245, 60, 43);
+                        font-size: 12px;
+                        font-weight: 400;
+                        line-height: 150%;
+                        text-transform: uppercase;
+                    }
+                    .edit p {
+                        color: rgb(160, 174, 192);
+                        font-size: 12px;
+                        font-weight: 400;
+                        line-height: 150%;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+            .info__block_content {
+                .row {
+                    div {
+                        display: flex;
+                        align-items: center;
+                        gap: 0 5px;
+                        p {
+                            color: rgb(160, 174, 192);
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 150%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .transactions {
+        border-radius: 20px;
+        padding: 28px 21px;
+        background: linear-gradient(
+            128.44deg,
+            rgba(6, 11, 40, 0.94) 21.29%,
+            rgba(10, 14, 35, 0.49) 79.86%
+        );
+        .transactions__top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            p {
+                color: rgb(255, 255, 255);
+                font-size: 18px;
+                font-weight: 700;
+                line-height: 140%;
+            }
+            .date {
+                display: flex;
+                align-items: center;
+                gap: 0 7px;
+                cursor: pointer;
+                span {
+                    color: rgb(160, 174, 192);
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 150%;
+                }
+            }
+        }
+        .transaction__content {
+            .newest {
+                color: rgb(160, 174, 192);
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 150%;
+                text-transform: uppercase;
+                margin-bottom: 18px;
+            }
+			.row__wrapper {
+				display: flex;
+				flex-direction: column;
+				gap: 21px 0;
+				margin-bottom: 21px;
+			}
+            .row {
+				display: flex;
+				justify-content: space-between;
+                .left {
+                    display: flex;
+                    align-items: center;
+                    gap: 0 14px;
+                    .info {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 4px 0;
+                        .name {
+                            color: rgb(255, 255, 255);
+                            font-size: 14px;
+                            font-weight: 700;
+                            line-height: 140%;
+                        }
+                        .date {
+                            color: rgb(160, 174, 192);
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 150%;
+                        }
+                    }
+                }
+                .right {
+                    .amount {
+                        color: rgb(1, 181, 116);
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 150%;
+                    }
+                }
+            }
+        }
+    }
+}
