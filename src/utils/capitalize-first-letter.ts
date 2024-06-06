@@ -1,4 +1,6 @@
 export function capitalizeFirstLetter(string: string) {
     if (!string) return string;
-    return string.charAt(1).toUpperCase() + string.slice(2);
+    const words = string.split('/');
+    const lastWord = words.pop() || '';
+    return lastWord.charAt(0).toUpperCase() + lastWord.slice(1);
 }

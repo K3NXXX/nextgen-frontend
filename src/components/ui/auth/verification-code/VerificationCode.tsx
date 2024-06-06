@@ -6,7 +6,10 @@ interface VerificationCodeProps {
     setResetCode?: React.Dispatch<SetStateAction<string>>
 }
 
-export function VerificationCode({ setVerifyCode, setResetCode }: VerificationCodeProps) {
+export function VerificationCode({
+    setVerifyCode,
+    setResetCode,
+}: VerificationCodeProps) {
     const inputRefs = useRef<(HTMLInputElement | null)[]>([])
     const [code, setCode] = useState('')
 
@@ -45,7 +48,7 @@ export function VerificationCode({ setVerifyCode, setResetCode }: VerificationCo
 
     return (
         <div className={styles.inputs_row}>
-            {[...new Array(6)].map((_, index) => (
+            {[...new Array(6)]((_, index) => (
                 <input
                     key={index}
                     value={code[index] || ''}

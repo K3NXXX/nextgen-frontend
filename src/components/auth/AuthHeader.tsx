@@ -10,7 +10,7 @@ export function AuthHeader() {
             <header className={styles.header}>
                 <Logo />
                 <div className={styles.navigation}>
-                    {authHeaderMenu.map((link: IAuthHeaderMenu) => (
+                    {authHeaderMenu((link: IAuthHeaderMenu) => (
                         <HeaderItem key={link.id} link={link} />
                     ))}
                 </div>

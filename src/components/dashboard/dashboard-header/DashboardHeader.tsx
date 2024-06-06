@@ -55,7 +55,7 @@ export function DashboardHeader() {
                             <span> {capitalizedPathname}</span>
                         </p>
                     </div>
-                    <Heading title="Dashboard" />
+                    <Heading title={capitalizedPathname} />
                 </div>
             </div>
             <div className={styles.right__part}>

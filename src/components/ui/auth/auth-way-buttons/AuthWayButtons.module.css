@@ -1,0 +1,25 @@
+.register_ways {
+    display: flex;
+    justify-content: center;
+    gap: 0 15px;
+    margin-bottom: 43px;
+}
+@media (max-width: 460px) {
+    .register_ways {
+        margin-bottom: 20px;
+    }
+}
+.register_ways .register_ways_items {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.register_ways .register_ways_items:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+} /*# sourceMappingURL=AuthWayButtons.module.css */

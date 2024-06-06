@@ -1,0 +1,1 @@
+{"version":3,"sources":["AuthWayButtons.module.scss","AuthWayButtons.module.css"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,uBAAA;EACA,WAAA;EACA,mBAAA;ACCJ;ADAI;EALJ;IAMQ,mBAAA;ECGN;AACF;ADFI;EACI,yBAAA;KAAA,sBAAA;UAAA,iBAAA;EACA,6BAAA;EACA,mBAAA;EACA,aAAA;EACA,uBAAA;EACA,eAAA;EACA,qBAAA;ACIR;ADFQ;EACI,0CAAA;ACIZ","file":"AuthWayButtons.module.css"}

@@ -63,7 +63,10 @@ export function Home() {
                             </div>
                         </div>
                         <div className={styles.news__list}>
-                            {homeNewsItems.slice(0, 3).map((item) => (
+                            {homeNewsItems.slice(
+                                0,
+                                3
+                            ).map((item) => (
                                 <div
                                     key={item.id}
                                     className={styles.news__list_item}

@@ -11,11 +11,11 @@ import { X } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useOnClickOutside } from 'usehooks-ts'
 import logoLine from '../../../../public/dashboard-page/Vector 6.png'
 import styles from './DashboardAside.module.scss'
-import { useRef } from 'react'
-import { useOnClickOutside } from 'usehooks-ts'
 
 export function DashboardAsideMobile() {
     const asideMenuRef = useRef(null)
@@ -26,9 +26,9 @@ export function DashboardAsideMobile() {
     )
     const handleClickOutside = () => {
         dispatch(setSideMenuOpened(false))
-      }
+    }
 
-      useOnClickOutside(asideMenuRef, handleClickOutside)
+    useOnClickOutside(asideMenuRef, handleClickOutside)
 
     return (
         <>
@@ -49,7 +49,7 @@ export function DashboardAsideMobile() {
                         />
                     </div>
                     <nav className={styles.menu}>
-                        {dashboardMenuMainPages.map((item) => (
+                        {dashboardMenuMainPages((item) => (
                             <Link
                                 href={item.url}
                                 key={item.id}
@@ -79,7 +79,7 @@ export function DashboardAsideMobile() {
                             </Link>
                         ))}
                         <p className={styles.accountPages}>ACCOUNT PAGES</p>
-                        {dashboardMenuAccountPages.map((item) => (
+                        {dashboardMenuAccountPages((item) => (
                             <Link
                                 href={item.url}
                                 key={item.id}

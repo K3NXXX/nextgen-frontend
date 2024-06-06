@@ -1,13 +1,13 @@
 'use client'
 
 import { salesData } from '@/data/charts.data/sales.data'
+import { userActivityData } from '@/data/charts.data/user.activity.data'
 import { userActivity } from '@/lists/dashboard/main/users.activity.items'
 import { LinearProgress } from '@mui/material'
 import { LineChart } from '@mui/x-charts'
 import { BarChart } from '@mui/x-charts/BarChart'
 import { LinearChartGradient } from './LinearChartGradient'
 import styles from './ThirdRow.module.scss'
-import { userActivityData } from '@/data/charts.data/user.activity.data'
 
 export function ThirdRow() {
     return (
@@ -27,9 +27,7 @@ export function ThirdRow() {
                 </div>
                 <div className={styles.usersActivity}>
                     <div className={styles.chart}>
-                        <BarChart
-                            {...userActivityData}
-                        />
+                        <BarChart {...userActivityData} />
                     </div>
                     <div className={styles.content}>
                         <p className={styles.active}>Active Users</p>
