@@ -39,7 +39,7 @@ export function VerifyEmailForm({
             )
             if (completeSignUp.status === 'complete') {
                 await setActive({ session: completeSignUp.createdSessionId })
-                replace(PAGES.HOME)
+                replace(PAGES.DASHBOARD)
                 toast.success('Registration was successful!')
                 reset()
             }

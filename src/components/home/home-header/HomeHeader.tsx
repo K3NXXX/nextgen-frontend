@@ -2,6 +2,7 @@
 
 import { Logo } from '@/components/ui/logo/Logo'
 import { PAGES } from '@/constants/pages-url.constants'
+import { SignedIn, SignedOut } from '@clerk/nextjs'
 import Link from 'next/link'
 import { Link as ScrollLink } from 'react-scroll'
 import styles from './HomeHeader.module.scss'
@@ -27,8 +28,13 @@ export function HomeHeader() {
                 </ul>
             </nav>
             <div className={styles.buttons}>
-                <Link href={PAGES.LOGIN}>Log in</Link>
-                <Link href={PAGES.REGISTER}>Sign up</Link>
+                <SignedIn>
+                    <Link href={PAGES.DASHBOARD}>Go to dashboard</Link>
+                </SignedIn>
+                <SignedOut>
+                    <Link href={PAGES.LOGIN}>Log in</Link>
+                    <Link href={PAGES.REGISTER}>Sign up</Link>
+                </SignedOut>
             </div>
         </header>
     )

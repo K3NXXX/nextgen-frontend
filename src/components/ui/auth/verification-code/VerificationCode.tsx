@@ -48,7 +48,7 @@ export function VerificationCode({
 
     return (
         <div className={styles.inputs_row}>
-            {[...new Array(6)]((_, index) => (
+            {[...new Array(6)].map((_, index) => (
                 <input
                     key={index}
                     value={code[index] || ''}

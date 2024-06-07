@@ -42,7 +42,7 @@ export function LoginForm() {
                 if (setActive) {
                     await setActive({ session: result.createdSessionId })
                     toast.success('Login was successful!')
-                    replace(PAGES.HOME)
+                    replace(PAGES.DASHBOARD)
                     reset()
                 }
             }

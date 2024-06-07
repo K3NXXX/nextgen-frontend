@@ -16,7 +16,7 @@ export default clerkMiddleware(
             return new NextResponse(null, {
                 status: 307,
                 headers: {
-                    Location: 'http://localhost:3000',
+                    Location: 'http://localhost:3000/dashboard',
                 },
             })
         }

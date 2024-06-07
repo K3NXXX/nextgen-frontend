@@ -42,7 +42,7 @@ export function ResetPasswordForm({
             .then((result: any) => {
                 if (result.status === 'complete') {
                     setActive({ session: result.createdSessionId })
-                    replace(PAGES.HOME)
+                    replace(PAGES.DASHBOARD)
                     toast.success('Password was changed successfully!')
                     reset()
                 } else {
