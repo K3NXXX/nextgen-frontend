@@ -1,0 +1,118 @@
+.root {
+    display: grid;
+    grid-template-columns: 371px 1fr;
+    gap: 0 29px;
+    .settings {
+        border-radius: 20px;
+        background: linear-gradient(
+            128.44deg,
+            rgba(6, 11, 40, 0.94) 16.603%,
+            rgba(10, 14, 35, 0.49) 71.839%
+        );
+        padding: 28px 21px;
+        h6 {
+            color: rgb(255, 255, 255);
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 140%;
+            margin-bottom: 27px;
+        }
+        .content {
+            .account,
+            .application {
+                color: rgb(160, 174, 192);
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 150%;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+            }
+			.application {
+				margin-top: 20px;
+			}
+            .settings__wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 15px 0;
+                div {
+                    display: flex;
+                    gap: 0 5px;
+                    align-items: center;
+                    p {
+                        color: rgb(160, 174, 192);
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 150%;
+                    }
+                }
+            }
+        }
+    }
+    .projects {
+        border-radius: 20px;
+        background: linear-gradient(
+            128.44deg,
+            rgba(6, 11, 40, 0.94) 25.548%,
+            rgba(10, 14, 35, 0.49) 87.148%
+        );
+        padding: 28px 21px;
+        h6 {
+            color: rgb(255, 255, 255);
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 140%;
+            margin-bottom: 6px;
+        }
+        .descr {
+            color: rgb(160, 174, 192);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 150%;
+            margin-bottom: 23px;
+        }
+        .content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0 20px;
+            img {
+                margin-bottom: 20px;
+            }
+            .project__number {
+                color: rgb(160, 174, 192);
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 150%;
+                margin-bottom: 10px;
+            }
+            .project__name {
+                color: rgb(255, 255, 255);
+                font-size: 18px;
+                font-weight: 700;
+                line-height: 140%;
+                margin-bottom: 10px;
+            }
+            .project__descr {
+                color: rgb(160, 174, 192);
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 150%;
+				margin-bottom: 17px;
+            }
+            .viewAll {
+                color: rgb(255, 255, 255);
+                font-size: 10px;
+                font-weight: 700;
+                line-height: 150%;
+                text-transform: uppercase;
+                background-color: transparent;
+                border: 1px solid rgb(255, 255, 255);
+                border-radius: 12px;
+				padding: 10px 35px;
+				transition: 0.3s ease;
+				&:hover {
+					background-color: #0075ff;
+				}
+            }
+        }
+    }
+}
