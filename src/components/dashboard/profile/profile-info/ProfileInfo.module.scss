@@ -1,7 +1,11 @@
 .root {
     display: grid;
-    grid-template-columns: 371px 1fr 1fr;
+    grid-template-columns: 0.85fr 1fr 1fr;
     gap: 0 29px;
+    @media (max-width:1800px) {
+        grid-template-columns: 1fr;
+        gap: 29px 0;
+    }
     .welcomeBack {
         padding: 20px;
         background-image: url('../../../../../public/dashboard-page/profile/welcome-back-bg.png');
@@ -36,6 +40,19 @@
                 font-size: 14px;
                 font-weight: 400;
                 line-height: 100%;
+            }
+        }
+    }
+    .info {
+        img {
+            @media (max-width:750px) {
+                width: 100%;
+            }
+            @media (max-width:600px) {
+                height: 300px;
+            }
+            @media (max-width:400px) {
+                height: 250px;
             }
         }
     }

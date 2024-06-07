@@ -49,7 +49,7 @@ export function DashboardAsideMobile() {
                         />
                     </div>
                     <nav className={styles.menu}>
-                        {dashboardMenuMainPages((item) => (
+                        {dashboardMenuMainPages.map((item) => (
                             <Link
                                 href={item.url}
                                 key={item.id}
@@ -79,7 +79,7 @@ export function DashboardAsideMobile() {
                             </Link>
                         ))}
                         <p className={styles.accountPages}>ACCOUNT PAGES</p>
-                        {dashboardMenuAccountPages((item) => (
+                        {dashboardMenuAccountPages.map((item) => (
                             <Link
                                 href={item.url}
                                 key={item.id}

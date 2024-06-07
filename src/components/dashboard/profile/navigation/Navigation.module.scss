@@ -10,10 +10,21 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media (max-width: 700px) {
+        flex-direction: column;
+        gap: 10px 0;
+    }
+
     .left {
         display: flex;
         align-items: center;
         gap: 0 23px;
+        @media (max-width: 700px) {
+            flex-direction: column;
+            gap: 10px 0;
+            text-align: center;
+        }
+     
         .userInfo {
             .name {
                 color: rgb(255, 255, 255);
@@ -30,9 +41,18 @@
         }
     }
     .right {
+        @media (max-width: 900px) {
+            width: 50%;
+        }
+        @media (max-width: 700px) {
+            width: 100%;
+        }
         .nav__list {
             display: flex;
             align-items: center;
+            @media (max-width: 900px) {
+                flex-direction: column;
+            }
             .list__item {
                 cursor: pointer;
                 user-select: none;
@@ -44,6 +64,9 @@
                 width: 150px;
                 background: transparent;
                 padding: 10px 20px;
+                @media (max-width: 900px) {
+                    width: 100%;
+                }
                 
                 p {
                     color: rgb(255, 255, 255);
@@ -64,6 +87,9 @@
 				border-radius: 15px;
 				width: 150px;
 				padding: 10px 20px;
+                @media (max-width: 900px) {
+                    width: 100%;
+                }
 				p {
                     color: rgb(255, 255, 255);
                     font-size: 12px;
