@@ -5,7 +5,7 @@ interface IInitialState {
 }
 
 const initialState: IInitialState = {
-    isSideMenuOpened: true,
+    isSideMenuOpened: false,
 }
 
 export const globalSlice = createSlice({

@@ -20,6 +20,13 @@
     @media (max-width:1440px) {
         grid-template-columns: 1fr;
     }  
+    .mobile {
+        display: none;
+        @media (max-width:1440px) {
+            display: block;
+            position: absolute;
+        }  
+    }
    
 }
 .wrapper {

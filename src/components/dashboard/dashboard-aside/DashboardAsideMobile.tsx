@@ -15,7 +15,7 @@ import { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useOnClickOutside } from 'usehooks-ts'
 import logoLine from '../../../../public/dashboard-page/Vector 6.png'
-import styles from './DashboardAside.module.scss'
+import styles from './DashboardAsideMobile.module.scss'
 
 export function DashboardAsideMobile() {
     const asideMenuRef = useRef(null)
