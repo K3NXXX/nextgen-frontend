@@ -10,9 +10,21 @@
     height: 1000px;
     background: linear-gradient(127.09deg, rgba(6, 11, 40, ) 19.41%, rgba(10, 14, 35, 0.49) 76.65%);
     animation-name: slideIn;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
 
-   
-   
+    @keyframes slideIn {
+        0% {
+            transform: translateX(-300px);
+
+        }
+        100% {
+            transform: translateX(0px);
+        }
+    }
+
+
+
     .close {
         display: none;
         @media (max-width:1440px) {

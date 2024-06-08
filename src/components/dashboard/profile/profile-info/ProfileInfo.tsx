@@ -1,21 +1,25 @@
 import info from '@/../public/dashboard-page/profile/info.png'
 import { MoveRight } from 'lucide-react'
 import Image from 'next/image'
+import { FaFacebook, FaTwitter } from 'react-icons/fa'
+import { IoLogoInstagram } from 'react-icons/io5'
 import styles from './ProfileInfo.module.scss'
-import { FaFacebook } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { IoLogoInstagram } from "react-icons/io5";
+import Link from 'next/link'
+import { currentUser } from '@clerk/nextjs/server'
 
-export function ProfileInfo() {
+export async function ProfileInfo() {
+    const user = await currentUser()
     return (
         <div className={styles.root}>
             <div className={styles.welcomeBack}>
                 <div className={styles.top}>
                     <p>Welcome back!</p>
-                    <span>Nice to see you, Mark Johnson!</span>
+                    <span>Nice to see you, {user?.fullName}!</span>
                 </div>
                 <div className={styles.bottom}>
-                    <p>Tap to record</p>
+                    <Link href="https://app.usechat.ai/widget/689b60c6-3e5d-4d1c-87ae-f0051da07cd9">
+                        Tap to record
+                    </Link>
                     <MoveRight color="white" size={20} />
                 </div>
             </div>
@@ -33,23 +37,23 @@ export function ProfileInfo() {
                 <div className={styles.content}>
                     <div>
                         <p>Full Name: </p>
-                        <span>Mark Johnson</span>
+                        <span>{user?.fullName}</span>
                     </div>
                     <div>
                         <p>Mobile: </p>
                         <span>(44) 123 1234 123</span>
                     </div>
-					<div>
+                    <div>
                         <p>Location: </p>
                         <span>United States3</span>
                     </div>
-					<div>
+                    <div>
                         <p>Social Media: </p>
                         <div className={styles.socials}>
-							<FaFacebook color='white' size={17}/>
-							<FaTwitter  color='white' size={17}/>
-							<IoLogoInstagram  color='white' size={17} />
-						</div>
+                            <FaFacebook color="white" size={17} />
+                            <FaTwitter color="white" size={17} />
+                            <IoLogoInstagram color="white" size={17} />
+                        </div>
                     </div>
                 </div>
             </div>

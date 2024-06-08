@@ -1,4 +1,3 @@
-'use client'
 import { CircularProgress } from '@mui/material'
 import { MoveRight } from 'lucide-react'
 import { IoIosHappy } from 'react-icons/io'
@@ -6,19 +5,23 @@ import { RxDotsHorizontal } from 'react-icons/rx'
 import styles from './SecondRow.module.scss'
 import Image from 'next/image'
 import satisfactionProgress from "../../../../../public/dashboard-page/main/satisfaction-progress.webp"
+import { currentUser } from '@clerk/nextjs/server'
+import Link from 'next/link'
 
-export function SecondRow() {
+export async function SecondRow() {
+    const user = await currentUser()
+    
     return (
         <div className={styles.root}>
             <div className={styles.ai__wrapper}>
                 <p className={styles.welcomeBack}>Welcome back,</p>
-                <p className={styles.user__name}>Mark Johnson</p>
+                <p className={styles.user__name}>{user?.fullName}</p>
                 <p className={styles.gladToSee}>
                     Glad to see you again!
                     <br /> Ask me anything.
                 </p>
                 <div className={styles.record}>
-                    <p>Tap to record</p>
+                    <Link href="https://app.usechat.ai/widget/689b60c6-3e5d-4d1c-87ae-f0051da07cd9">Tap to record</Link>
                     <MoveRight color="white" />
                 </div>
             </div>
