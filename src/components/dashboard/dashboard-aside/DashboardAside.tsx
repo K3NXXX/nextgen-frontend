@@ -10,17 +10,19 @@ import { X } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import logoLine from '../../../../public/dashboard-page/Vector 6.png'
 import styles from './DashboardAside.module.scss'
+import { RootState } from '@/redux/store'
 
 export function DashboardAside() {
     const pathname = usePathname()
     const dispatch = useDispatch()
+    const {sideNavType, UIConfigureColor} = useSelector((state: RootState) => state.globalSlice)
 
     return (
         <>
-            <aside className={styles.root}>
+            <aside className={`${styles.root} ${sideNavType === "opaque" ? styles.active : ''}`}>
                 <X
                     onClick={() => dispatch(setSideMenuOpened(false))}
                     color="white"
@@ -47,13 +49,13 @@ export function DashboardAside() {
                                     className={styles.menu__icon}
                                     style={
                                         pathname === item.url
-                                            ? { background: '#0075FF' }
+                                            ? { background: UIConfigureColor }
                                             : { background: '#1A1F37' }
                                     }
                                     color={
                                         pathname === item.url
                                             ? 'white'
-                                            : '#0075FF'
+                                            : UIConfigureColor
                                     }
                                     size={33}
                                 />
@@ -77,13 +79,13 @@ export function DashboardAside() {
                                     className={styles.menu__icon}
                                     style={
                                         pathname === item.url
-                                            ? { background: '#0075FF' }
+                                            ? { background: UIConfigureColor }
                                             : { background: '#1A1F37' }
                                     }
                                     color={
                                         pathname === item.url
                                             ? 'white'
-                                            : '#0075FF'
+                                            : UIConfigureColor
                                     }
                                     size={33}
                                 />

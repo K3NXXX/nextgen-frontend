@@ -1,3 +1,4 @@
+
 .root {
     padding-top: 16px;
     padding-bottom: 16px;
@@ -6,9 +7,10 @@
     display: flex;
     justify-content: space-between;
     position: sticky;
-    top: 20px;
+    top: 20px; 
     z-index: 50;
     border: 1px solid transparent;
+
     @media (max-width: 600px) {
         flex-direction: column;
         gap: 20px 0;
@@ -16,6 +18,27 @@
         padding-left: 15px;
     }
 }
+
+.active {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-right: 50px;
+    padding-left: 15px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 20px;  // Ensure top is set to 0 to prevent shifting
+    z-index: 50;
+    border: 1px solid transparent;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        gap: 20px 0;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
 .sticky {
     box-shadow: rgba(255, 255, 255, 0.9) 0rem 0rem 0.0625rem 0.0625rem inset,
         rgba(0, 0, 0, 0.05) 0rem 1.25rem 1.6875rem 0rem;

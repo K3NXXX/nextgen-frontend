@@ -35,38 +35,39 @@ export function DashboardHeader() {
     const pathname = usePathname()
     const capitalizedPathname = capitalizeFirstLetter(pathname)
     const headerRef = useRef<HTMLHeadElement>(null)
-    const { isSideMenuOpened } = useSelector(
+    const { isSideMenuOpened, navBarFixed } = useSelector(
         (state: RootState) => state.globalSlice
     )
     const asideMenuRef = useRef<HTMLDivElement>(null)
-
+    console.log(navBarFixed)
     const handleMenuClick = () => {
         dispatch(setSideMenuOpened(!isSideMenuOpened))
     }
-
     useOnClickOutside(asideMenuRef, handleMenuClick)
     useEffect(() => {
-        const header = headerRef.current
+        if (navBarFixed) {
+            const header = headerRef.current
 
-        const handleScroll = () => {
-            if (header) {
-                const isAtTop = window.scrollY === 0
-                const isSticky =
-                    header.getBoundingClientRect().top <= 20 && !isAtTop //
-                if (isSticky) {
-                    header.classList.add(styles.sticky)
-                } else {
-                    header.classList.remove(styles.sticky)
+            const handleScroll = () => {
+                if (header) {
+                    const isAtTop = window.scrollY === 0
+                    const isSticky =
+                        header.getBoundingClientRect().top <= 20 && !isAtTop 
+                    if (isSticky) { 
+                        header.classList.add(styles.sticky) 
+                    } else {
+                        header.classList.remove(styles.sticky)
+                    }
                 }
             }
+            window.addEventListener('scroll', handleScroll)
+            return () => {
+                window.removeEventListener('scroll', handleScroll)
+            }
         }
-        window.addEventListener('scroll', handleScroll)
-        return () => {
-            window.removeEventListener('scroll', handleScroll)
-        }
-    }, [])
+    }, [navBarFixed])
     return (
-        <header ref={headerRef} className={styles.root}>
+        <header ref={headerRef} className={navBarFixed ? styles.root : styles.active}>
             <div className={styles.left__part}>
                 <div className={styles.pages}>
                     <div className={styles.pages__top}>

@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import { Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.scss'
 
-const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'], weight: '400' })
+const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'], weight: ['400', '500', '700'], fallback: ['sans-serif'] })
 
 export const metadata: Metadata = {
     title: {
@@ -21,9 +21,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={plusJakartaSans.className}>
+            <body  className={plusJakartaSans.className}>
                 <ClientProviders>{children}</ClientProviders>
-                <script async src="https://js.usechat.ai/widget/689b60c6-3e5d-4d1c-87ae-f0051da07cd9.js"></script><a id="usechat-button"  href="https://app.usechat.ai/widget/689b60c6-3e5d-4d1c-87ae-f0051da07cd9">UseChat</a>
+             
             </body>
         </html>
     )

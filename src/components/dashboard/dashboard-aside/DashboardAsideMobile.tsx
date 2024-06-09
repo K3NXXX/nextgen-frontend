@@ -21,6 +21,7 @@ export function DashboardAsideMobile() {
     const asideMenuRef = useRef(null)
     const pathname = usePathname()
     const dispatch = useDispatch()
+    const {UIConfigureColor} = useSelector((state: RootState) => state.globalSlice)
     const { isSideMenuOpened } = useSelector(
         (state: RootState) => state.globalSlice
     )
@@ -64,13 +65,13 @@ export function DashboardAsideMobile() {
                                         className={styles.menu__icon}
                                         style={
                                             pathname === item.url
-                                                ? { background: '#0075FF' }
+                                                ? { background: UIConfigureColor }
                                                 : { background: '#1A1F37' }
                                         }
                                         color={
                                             pathname === item.url
                                                 ? 'white'
-                                                : '#0075FF'
+                                                : UIConfigureColor
                                         }
                                         size={33}
                                     />
@@ -94,13 +95,13 @@ export function DashboardAsideMobile() {
                                         className={styles.menu__icon}
                                         style={
                                             pathname === item.url
-                                                ? { background: '#0075FF' }
+                                                ? { background: UIConfigureColor }
                                                 : { background: '#1A1F37' }
                                         }
                                         color={
                                             pathname === item.url
                                                 ? 'white'
-                                                : '#0075FF'
+                                                : UIConfigureColor
                                         }
                                         size={33}
                                     />

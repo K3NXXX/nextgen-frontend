@@ -3,7 +3,6 @@ import { GeneralStatistics } from '@/components/dashboard/main/general-statistic
 import { SecondRow } from '@/components/dashboard/main/second-row/SecondRow'
 import { ThirdRow } from '@/components/dashboard/main/third-row/ThirdRow'
 import styles from './Dashboard.module.scss'
-import { currentUser } from '@clerk/nextjs/server'
 
 export function Dashboard() {
     return (
