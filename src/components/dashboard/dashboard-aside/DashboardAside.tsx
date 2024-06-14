@@ -6,6 +6,7 @@ import {
     dashboardMenuMainPages,
 } from '@/lists/dashboard/dashboard.menu.items'
 import { setSideMenuOpened } from '@/redux/slices/globalSlice'
+import { RootState } from '@/redux/store'
 import { X } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -13,16 +14,39 @@ import { usePathname } from 'next/navigation'
 import { useDispatch, useSelector } from 'react-redux'
 import logoLine from '../../../../public/dashboard-page/Vector 6.png'
 import styles from './DashboardAside.module.scss'
-import { RootState } from '@/redux/store'
+import { PAGES } from '@/constants/pages-url.constants'
+import { useState } from 'react'
 
 export function DashboardAside() {
     const pathname = usePathname()
     const dispatch = useDispatch()
-    const {sideNavType, UIConfigureColor} = useSelector((state: RootState) => state.globalSlice)
+    const { sideNavType, UIConfigureColor } = useSelector(
+        (state: RootState) => state.globalSlice
+    )
+    const [anchorEl, setAnchorEl] = useState(null)
+    const open = Boolean(anchorEl)
+  
+
+    const handleLinkClick = (url: string) => {
+        if (url === PAGES.REGISTER) {
+            alert("hello")
+        }
+    }
+
+    const handleClick = (event: any) => {
+        setAnchorEl(event.currentTarget)
+    }
+    const handleClose = () => {
+        setAnchorEl(null)
+    }
 
     return (
         <>
-            <aside className={`${styles.root} ${sideNavType === "opaque" ? styles.active : ''}`}>
+            <aside
+                className={`${styles.root} ${
+                    sideNavType === 'opaque' ? styles.active : ''
+                }`}
+            >
                 <X
                     onClick={() => dispatch(setSideMenuOpened(false))}
                     color="white"
@@ -43,6 +67,7 @@ export function DashboardAside() {
                                     ? styles.active
                                     : styles.menu__item
                             }
+                          
                         >
                             <div>
                                 <item.icon
@@ -73,6 +98,7 @@ export function DashboardAside() {
                                     ? styles.active
                                     : styles.menu__item
                             }
+                            onClick={() => handleLinkClick(item.url)}
                         >
                             <div>
                                 <item.icon

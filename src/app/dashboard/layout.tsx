@@ -7,6 +7,7 @@ import styles from './Dashboard.module.scss'
 import { DashboardAside } from '@/components/dashboard/dashboard-aside/DashboardAside'
 import { DashboardAsideMobile } from '@/components/dashboard/dashboard-aside/DashboardAsideMobile'
 import { DashboardUIConfigurator } from '@/components/dashboard/dashboard-ui-configurator/DashboardUIConfigurator'
+import { DashboardFooter } from '@/components/dashboard/dashboard-footer/DashboardFooter'
 
 export default function Layout({ children }: PropsWithChildren<unknown>) {
     
@@ -22,6 +23,7 @@ export default function Layout({ children }: PropsWithChildren<unknown>) {
                     <DashboardHeader />
                     <DashboardSetting />
                     {children}
+                <DashboardFooter/>
                 </main>
             </div>
       

@@ -4,6 +4,7 @@ import { FaUser } from 'react-icons/fa6'
 import { IoIosCard, IoIosRocket } from 'react-icons/io'
 import { IoStatsChart } from 'react-icons/io5'
 import type { IconType } from 'react-icons/lib'
+import { FaDiagramProject } from "react-icons/fa6";
 
 interface IDashboardMenu {
     id: number
@@ -30,6 +31,12 @@ export const dashboardMenuMainPages: IDashboardMenu[] = [
         icon: IoIosCard,
         label: 'Billing',
         url: PAGES.BILLING,
+    },
+    {
+        id: 4,
+        icon: FaDiagramProject,
+        label: 'Projects',
+        url: PAGES.PROJECTS,
     },
 ]
 export const dashboardMenuAccountPages: IDashboardMenu[] = [

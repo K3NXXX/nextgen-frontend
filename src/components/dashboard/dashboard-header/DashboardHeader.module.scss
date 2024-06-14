@@ -10,6 +10,7 @@
     top: 20px; 
     z-index: 50;
     border: 1px solid transparent;
+    margin-bottom: 28px;
 
     @media (max-width: 600px) {
         flex-direction: column;
@@ -27,9 +28,10 @@
     display: flex;
     justify-content: space-between;
     position: relative;
-    top: 20px;  // Ensure top is set to 0 to prevent shifting
+    top: 20px;  
     z-index: 50;
     border: 1px solid transparent;
+    margin-bottom: 28px;
 
     @media (max-width: 600px) {
         flex-direction: column;

@@ -8,6 +8,7 @@ class Pages {
     TABLES = `${this.root}dashboard/tables`
     BILLING = `${this.root}dashboard/billing`
 	DASHBOARD = `${this.root}dashboard`
+    PROJECTS = `${this.root}dashboard/projects`
 }
 
 export const PAGES = new Pages()
