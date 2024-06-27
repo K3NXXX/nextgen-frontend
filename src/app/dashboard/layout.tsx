@@ -1,32 +1,32 @@
-"use client"
+'use client'
 
-import { DashboardHeader } from '@/components/dashboard/dashboard-header/DashboardHeader'
-import { DashboardSetting } from '@/components/dashboard/dashboard-settings/DashboardSetting'
-import { useEffect, type PropsWithChildren } from 'react'
-import styles from './Dashboard.module.scss'
 import { DashboardAside } from '@/components/dashboard/dashboard-aside/DashboardAside'
 import { DashboardAsideMobile } from '@/components/dashboard/dashboard-aside/DashboardAsideMobile'
-import { DashboardUIConfigurator } from '@/components/dashboard/dashboard-ui-configurator/DashboardUIConfigurator'
 import { DashboardFooter } from '@/components/dashboard/dashboard-footer/DashboardFooter'
+import { DashboardHeader } from '@/components/dashboard/dashboard-header/DashboardHeader'
+import { DashboardSetting } from '@/components/dashboard/dashboard-settings/DashboardSetting'
+import { DashboardUIConfigurator } from '@/components/dashboard/dashboard-ui-configurator/DashboardUIConfigurator'
+import { type PropsWithChildren } from 'react'
+import styles from './Dashboard.module.scss'
 
 export default function Layout({ children }: PropsWithChildren<unknown>) {
-    
     return (
         <div className={styles.root}>
             <div className={styles.container}>
-                    <DashboardAside />
-                    <DashboardUIConfigurator/>
+                <DashboardAside />
+                <DashboardUIConfigurator />
                 <div className={styles.mobile}>
-                    <DashboardAsideMobile/>
+                    <DashboardAsideMobile />
                 </div>
-                <main  className={styles.main}>
+                <div className={styles.content}>
                     <DashboardHeader />
-                    <DashboardSetting />
-                    {children}
-                <DashboardFooter/>
-                </main>
+                    <main className={styles.main}>
+                        <DashboardSetting />
+                        {children}
+                    </main>
+                    <DashboardFooter />
+                </div>
             </div>
-      
         </div>
     )
 }

@@ -1,4 +1,118 @@
 .root {
-	display: grid;
-	grid-template-columns: 0.4fr 1fr;
+    .wrapper {
+        .title {
+            color: rgb(255, 255, 255);
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 100%;
+            margin-bottom: 30px;
+        }
+        .content {
+            display: flex;
+            gap: 0 30px;
+            .addProject {
+                width: 333px;
+                height: 315px;
+                border: 1px solid white;
+                border-radius: 1.25rem;
+				padding: 20px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				background: linear-gradient(
+					310deg,
+					rgb(20, 23, 39),
+					rgb(58, 65, 111)
+				);
+				transition: 0.3s ease;
+				&:hover {
+					opacity: 0.8;
+				}
+                p {
+					margin-bottom: 15px;
+                    color: rgb(255, 255, 255);
+                    font-size: 25px;
+                    font-weight: 700;
+                    line-height: 100%;
+                }
+            }
+            .projects__list {
+				display: grid;
+				grid-template-columns: repeat(3,1fr);
+                gap: 30px;
+                .project {
+                    background-image: url('../../../../public/dashboard-page/projects/project-bg.png');
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    width: 333px;
+                    height: 315px;
+                    border-radius: 1.25rem;
+                    transform-style: preserve-3d;
+                    transform: perspective(1000px) rotateX(0deg) rotateY(0deg)
+                        scale3d(1, 1, 1);
+                    will-change: transform;
+                    transition: transform 0.1s ease;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    padding: 20px;
+					&:hover {
+						transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
+					}
+                    .project__name {
+                        color: rgb(255, 255, 255);
+                        font-size: 25px;
+                        font-weight: 700;
+                        line-height: 100%;
+                        text-align: center;
+                        margin-bottom: 20px;
+                    }
+                    .earning {
+                        font-size: 15px;
+                        color: white;
+                        font-weight: 700;
+                        text-align: center;
+                        margin-bottom: 10px;
+                        background: linear-gradient(
+                            310deg,
+                            rgb(20, 23, 39),
+                            rgb(58, 65, 111)
+                        );
+                        padding: 5px 10px;
+                        width: 90px;
+                        border-radius: 7px;
+                        margin: 0 auto 10px auto;
+                    }
+                    .earning__number {
+                        font-size: 30px;
+                        color: white;
+                        font-weight: 700;
+                        text-align: center;
+                        margin-bottom: 20px;
+                    }
+                    .viewAll {
+                        background-color: transparent;
+                        font-size: 15px;
+                        border: 1px solid white;
+                        border-radius: 12px;
+                        padding: 8px 20px;
+                        width: 100px;
+                        color: white;
+                        font-weight: 500;
+                        margin: 0 auto;
+                        transition: 0.3s ease;
+                        &:hover {
+                            background-color: white;
+                            color: rgb(0, 117, 255);
+                            border: 1px solid rgb(0, 117, 255);
+                        }
+                    }
+                }
+				
+            }
+        }
+    }
 }

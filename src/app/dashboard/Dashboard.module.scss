@@ -27,6 +27,13 @@
             position: absolute;
         }  
     }
+    .content {
+        display: flex;
+        flex-direction: column;
+        .main {
+            flex: 1;
+        }
+    }
    
 }
 .wrapper {
