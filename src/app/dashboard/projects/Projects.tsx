@@ -3,8 +3,14 @@
 import { useRef } from 'react'
 import styles from './Projects.module.scss'
 import { CiBookmarkPlus } from "react-icons/ci";
+import { AddProjectsForm } from '@/components/dashboard/projects/add-projects-form/AddProjectsForm'
+import { useDispatch, useSelector } from 'react-redux'
+import { setOpenProjectAddForm } from '@/redux/slices/globalSlice'
+import { RootState } from '@/redux/store'
 
 export function Projects() {
+    const dispatch = useDispatch()
+    const {openProjectAddForm} = useSelector((state:RootState) => state.globalSlice)
     const projectRef = useRef<HTMLDivElement | null>(null)
     const handleMouseMove = (
         e: React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -34,7 +40,7 @@ export function Projects() {
             <div className={styles.wrapper}>
                 <h6 className={styles.title}>Your projects</h6>
                 <div className={styles.content}>
-					<div className={styles.addProject}>
+					<div onClick={() => dispatch(setOpenProjectAddForm(true))} className={styles.addProject}>
 						<p>Add new project</p>
 						<CiBookmarkPlus color='white' size={50}  />
 					</div>
@@ -55,6 +61,8 @@ export function Projects() {
 						
                     </div>
                 </div>
+                {openProjectAddForm && <AddProjectsForm/>}
+                
             </div>
         </div>
     )

@@ -6,6 +6,7 @@ interface IInitialState {
     UIConfigureColor: string
     sideNavType: 'transparent' | 'opaque'
     navBarFixed: boolean
+    openProjectAddForm: boolean
 }
 
 const initialState: IInitialState = {
@@ -14,6 +15,7 @@ const initialState: IInitialState = {
     UIConfigureColor: '#0075ff',
     sideNavType: 'transparent',
     navBarFixed: true,
+    openProjectAddForm: false,
 }
 
 export const globalSlice = createSlice({
@@ -35,6 +37,9 @@ export const globalSlice = createSlice({
         setNavBarFixed(state, action) {
             state.navBarFixed = action.payload
         },
+        setOpenProjectAddForm(state, action) {
+            state.openProjectAddForm = action.payload
+        },
     },
 })
 
@@ -44,6 +49,7 @@ export const {
     setUIConfigureColor,
     setSideNavType,
     setNavBarFixed,
+    setOpenProjectAddForm
 } = globalSlice.actions
 
 export default globalSlice.reducer
