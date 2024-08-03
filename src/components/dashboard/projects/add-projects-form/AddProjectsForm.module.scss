@@ -85,9 +85,12 @@
                 padding: 12px 0;
             }
             .infoForm {
+                .errors {
+                    position: absolute;
+                }
                 display: flex;
                 flex-direction: column;
-                height: 600px;
+                height: 650px;
                 .input__block {
                     display: flex;
                     flex-direction: column;
@@ -124,37 +127,37 @@
                     }
                 }
             }
-            .membersForm, .confirmForm {
+            .membersForm,
+            .confirmForm {
                 height: 600px;
                 p {
                     color: white;
                     margin-bottom: 20px;
                     font-size: 16px;
-                   
                 }
                 .membersCount {
                     margin-bottom: 20px;
-
                 }
                 .addMembers {
                     width: 30%;
                     padding: 12px 0;
                     margin-bottom: 300px;
                 }
-            }
-            .buttons {
-                display: flex;
-                gap: 0 30px;
-                flex-direction: row-reverse;
-                justify-content: space-between;
-                .backButton {
-                    margin-top: 20px;
-                    width: 100%;
-                    padding: 12px 0;
-                    background-color: #1a213b;
+                .buttons {
+                    display: flex;
+                    gap: 0 30px;
+                    flex-direction: row-reverse;
+                    justify-content: space-between;
+                    
+                    .backButton {
+                        margin-top: 20px;
+                        width: 100%;
+                        padding: 12px 0;
+                        background-color: #1a213b;
+                    }
                 }
-               
             }
+            
         }
     }
     .title {

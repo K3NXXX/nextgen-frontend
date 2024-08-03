@@ -2,18 +2,18 @@
 
 import { Logo } from '@/components/ui/logo/Logo'
 import { setOpenProjectAddForm } from '@/redux/slices/globalSlice'
-import { Button, Slider } from '@mui/material'
-import { useState } from 'react'
+import { RootState } from '@/redux/store'
 import { IoIosArrowForward, IoMdClose } from 'react-icons/io'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import styles from './AddProjectsForm.module.scss'
 import { InfoForm } from './info-form/InfoForm'
+import { MembersForm } from './members-form/MembersForm'
 
 export function AddProjectsForm() {
     const dispatch = useDispatch()
-    let [formSections, setFormSections] = useState(0)
-    console.log(formSections)
-
+    const { switchAddProjectForm } = useSelector(
+        (state: RootState) => state.projectSlice
+    )
     return (
         <div className={styles.root}>
             <div className={styles.wrapper}>
@@ -48,27 +48,11 @@ export function AddProjectsForm() {
                             </div>
                         </div>
                         <div className={styles.project__content}>
-                            {formSections === 0 && <InfoForm />}
-                            {formSections === 1 && (
-                                <form className={styles.membersForm}>
-                                    <h5 className={styles.title}>Members</h5>
-                                    <p>Select the count of members</p>
-                                    <Slider
-                                        className={styles.membersCount}
-                                        defaultValue={12}
-                                        aria-label="Default"
-                                        valueLabelDisplay="auto"
-                                    />
-                                    <p>Add members to your project</p>
-                                    <Button
-                                        className={styles.addMembers}
-                                        variant="contained"
-                                    >
-                                        Add members
-                                    </Button>
-                                </form>
+                            {switchAddProjectForm === 'info' && <InfoForm />}
+                            {switchAddProjectForm === 'members' && (
+                                <MembersForm />
                             )}
-                            {formSections === 2 && (
+                            {switchAddProjectForm === '' && (
                                 <form className={styles.confirmForm}>
                                     <h5 className={styles.title}>Confirm</h5>
                                     <p>
@@ -81,23 +65,7 @@ export function AddProjectsForm() {
                                     </p>
                                 </form>
                             )}
-                            <div className={styles.buttons}>
-                                <Button
-                                    className={styles.continueButton}
-                                    onClick={() => {
-                                        setFormSections(++formSections)
-                                        if (formSections === 3) {
-                                            dispatch(
-                                                setOpenProjectAddForm(false)
-                                            )
-                                        }
-                                    }}
-                                    variant="contained"
-                                >
-                                    {formSections === 2
-                                        ? 'Confirm'
-                                        : 'Continue'}
-                                </Button>
+                            {/* <div className={styles.buttons}>
                                 {(formSections === 1 || formSections === 2) && (
                                     <Button
                                         className={styles.backButton}
@@ -109,7 +77,7 @@ export function AddProjectsForm() {
                                         Back
                                     </Button>
                                 )}
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
