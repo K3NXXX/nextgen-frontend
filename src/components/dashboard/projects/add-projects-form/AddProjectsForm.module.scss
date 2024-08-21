@@ -75,22 +75,23 @@
             }
         }
 
-        .project__content {
+        .addProjectForm {
+            .errors {
+                position: absolute;
+            }
             .title {
                 margin-bottom: 30px;
             }
-            .continueButton {
+            .continueButton,
+            .confirmButton {
                 margin-top: 20px;
                 width: 100%;
                 padding: 12px 0;
             }
-            .infoForm {
-                .errors {
-                    position: absolute;
-                }
+            .infoBlock {
                 display: flex;
                 flex-direction: column;
-                height: 650px;
+                height: 600px;
                 .input__block {
                     display: flex;
                     flex-direction: column;
@@ -127,13 +128,23 @@
                     }
                 }
             }
-            .membersForm,
-            .confirmForm {
+            .membersBlock,
+            .confirmBlock {
+                word-wrap: break-word;
                 height: 600px;
+                span {
+                    color: #1565c0;
+                    font-weight: 700
+                }
                 p {
                     color: white;
                     margin-bottom: 20px;
                     font-size: 16px;
+                    color: rgb(255, 255, 255);
+                    font-size: 18px;
+                    font-weight: 500;
+                    line-height: 150%;
+                    letter-spacing: 0%;
                 }
                 .membersCount {
                     margin-bottom: 20px;
@@ -143,21 +154,19 @@
                     padding: 12px 0;
                     margin-bottom: 300px;
                 }
-                .buttons {
-                    display: flex;
-                    gap: 0 30px;
-                    flex-direction: row-reverse;
-                    justify-content: space-between;
-                    
-                    .backButton {
-                        margin-top: 20px;
-                        width: 100%;
-                        padding: 12px 0;
-                        background-color: #1a213b;
-                    }
+            }
+            .buttons {
+                display: flex;
+                gap: 0 30px;
+                flex-direction: row-reverse;
+                justify-content: space-between;
+                .backButton {
+                    margin-top: 20px;
+                    width: 100%;
+                    padding: 12px 0;
+                    background-color: #1a213b;
                 }
             }
-            
         }
     }
     .title {
